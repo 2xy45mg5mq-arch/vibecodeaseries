@@ -120,14 +120,7 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
 
 .story-opener{font-size:17px;font-weight:600;color:#fff;line-height:1.85}
 
-.edit-toggle{position:fixed;bottom:24px;right:24px;z-index:100;display:flex;gap:8px;align-items:center}
-.edit-btn{font-family:var(--mono);font-size:11px;padding:10px 18px;border:1.5px solid var(--border);background:var(--bg-sidebar);color:var(--text-muted);cursor:pointer;transition:all 0.2s}
-.edit-btn:hover{border-color:var(--accent);color:var(--accent)}
-.edit-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(218,119,86,0.08)}
-.edit-btn.export{display:none}
-.edit-btn.export.show{display:inline-block}
-[contenteditable="true"]{outline:1px dashed rgba(218,119,86,0.25);outline-offset:4px;border-radius:2px}
-[contenteditable="true"]:focus{outline-color:var(--accent)}
+
 
 @media(max-width:800px){
   .layout{grid-template-columns:1fr}
@@ -175,10 +168,10 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
 
     <div class="story" id="story">
       <div class="story-chunk story-opener" id="s0"><strong>It's 2026. And everyone's making it&nbsp;up.</strong></div>
-      <div class="story-chunk" id="s1"><span class="char-name">NATE</span> is no exception. He's got strong experience — on paper. But with business moving to the terminal, his skillset isn't really working for the tech company where he works. Or, as of today, <em>used to work</em>. It's not that they don't like him. They just don't think he's…that good at things. Still, they let him stay in the office until he finds another&nbsp;job.</div>
-      <div class="story-chunk" id="s2"><span class="char-name">FRANKIE</span> fucking loves it. The hype beast account manager has been preaching the primacy of "agency" since GPT-3.5 and sees Nate's "liberation" as the catalyst to activate growth for the both of them. Frankie wants to build and ship — if only he knew how to build anything. He convinces Nate to just make his own thing. They just need to find a&nbsp;thing.</div>
-      <div class="story-chunk" id="s3"><span class="char-name">JAY</span> just thinks they're morons. The cynical sales engineer with a mortgage knows what's coming, and insists Nate get another "real job" before he's trapped in the permanent&nbsp;underclass.</div>
-      <div class="story-chunk" id="s4"><span class="char-name">YARI</span> has a camera and Claude supermax. She's at the office shooting marketing content, but finds Nate's crashout way more interesting. A mom with a real Hollywood career behind her, she traded directing for steady work. But when her remixes of Nate's firing go viral, she sees an opportunity to make something real. Even if everything Nate tries is completely fake. So while he's vibe-coding his career — flailing and failing to cash in on the AI gold rush — she's using him to <span class="pivot-highlight">vibe code a&nbsp;series.</span></div>
+      <div class="story-chunk" id="s1"><span class="char-name">MAX</span> is no exception. He's got strong experience — on paper. But with business moving to the terminal, his skillset isn't really working for the tech company where he works. Or, as of today, <em>used to work</em>. It's not that they don't like him. They just don't think he's…that good at things. Still, they let him stay in the office until he finds another&nbsp;job.</div>
+      <div class="story-chunk" id="s2"><span class="char-name">FRANKIE</span> fucking loves it. The hype beast account manager has been preaching the primacy of "agency" since GPT-3.5 and sees Max's "liberation" as the catalyst to activate growth for the both of them. Frankie wants to build and ship — if only he knew how to build anything. He convinces Max to just make his own thing. They just need to find a&nbsp;thing.</div>
+      <div class="story-chunk" id="s3"><span class="char-name">JAY</span> just thinks they're morons. The cynical sales engineer with a mortgage knows what's coming, and insists Max get another "real job" before he's trapped in the permanent&nbsp;underclass.</div>
+      <div class="story-chunk" id="s4"><span class="char-name">TAYARISHA</span> has a camera and Claude supermax. She's at the office shooting marketing content, but finds Max's crashout way more interesting. A mom with a real Hollywood career behind her, she traded directing for steady work. But when her remixes of Max's firing go viral, she sees an opportunity to make something real. Even if everything Max tries is completely fake. So while he's vibe-coding his career — flailing and failing to cash in on the AI gold rush — she's using him to <span class="pivot-highlight">vibe code a&nbsp;series.</span></div>
     </div>
 
     <div class="sep section" data-reveal></div>
@@ -192,10 +185,7 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
   </div>
 </div>
 
-<div class="edit-toggle" id="edit-toggle">
-  <button class="edit-btn" id="edit-btn" onclick="toggleEdit()">✎ edit</button>
-  <button class="edit-btn export" id="export-btn" onclick="exportChanges()">↓ copy changes</button>
-</div>
+
 
 <script>
 const sidebarMsgs=['future generating...','vibe coding...','ego compiling...','budget optimizing...','vibes calibrating...','delusion indexing...','rent calculating...','hustle rendering...','concept loading...','agency activating...','crash out buffering...','dreams compressing...','chaos normalizing...','tapping culture...','satirizing business...','safety net dissolving...'];
@@ -254,36 +244,7 @@ document.getElementById('chat-box').addEventListener('submit',function(ev){
   .then(r=>{if(!r.ok)throw new Error(r.status);form.classList.remove('active');form.style.display='none';sent.textContent='message sent. stay tuned.';sent.classList.add('active')})
   .catch(()=>{form.classList.remove('active');form.style.display='none';sent.textContent='something broke. try emailing max@mcoynegreen.com';sent.classList.add('active')});
 });
-// Edit mode
-let editMode=false;const originals=new Map();
-const editableSelectors='.story-chunk, .meta-text, .meta-callout, .credit-works, .subtitle';
-function toggleEdit(){
-  editMode=!editMode;
-  const btn=document.getElementById('edit-btn'),exp=document.getElementById('export-btn');
-  btn.classList.toggle('active',editMode);btn.textContent=editMode?'✎ editing':'✎ edit';
-  exp.classList.toggle('show',editMode);
-  document.querySelectorAll(editableSelectors).forEach(el=>{
-    if(editMode){if(!originals.has(el))originals.set(el,el.innerHTML);el.contentEditable='true'}
-    else{el.contentEditable='false'}
-  });
-}
-function exportChanges(){
-  let md='# Edits — '+new Date().toLocaleString()+'\n\n';let count=0;
-  originals.forEach((orig,el)=>{
-    if(el.innerHTML!==orig){
-      count++;const section=el.closest('.meta-section');
-      const label=section?section.querySelector('.meta-label')?.textContent:'STORY';
-      const oldText=orig.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim();
-      const newText=el.innerHTML.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim();
-      md+='## '+label+'\n**Was:** '+oldText.substring(0,80)+'...\n**Now:** '+newText+'\n\n';
-    }
-  });
-  if(count===0){alert('No changes detected.');return}
-  navigator.clipboard.writeText(md).then(()=>{
-    const btn=document.getElementById('export-btn');btn.textContent='✓ copied';
-    setTimeout(()=>{btn.textContent='↓ copy changes'},1500);
-  });
-}
+
 </script>
 </body>
 </html>
