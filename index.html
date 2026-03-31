@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>vibe code a series</title>
 <meta property="og:title" content="vibe code a series">
-<meta property="og:description" content="A short-form comedy inside the AI revolution.">
+<meta property="og:description" content="bite-sized comedy from inside the stack.">
 <meta property="og:image" content="https://vibecodeaseries.com/og-vibecode.jpg">
 <meta property="og:url" content="https://vibecodeaseries.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="vibe code a series">
-<meta name="twitter:description" content="A short-form comedy inside the AI revolution.">
+<meta name="twitter:description" content="bite-sized comedy from inside the stack.">
 <meta name="twitter:image" content="https://vibecodeaseries.com/og-vibecode.jpg">
-<meta name="description" content="VIBE CODE — A short-form comedy inside the AI revolution. From the creators of Selah and the Spades and Human Resource.">
+<meta name="description" content="VIBE CODE — bite-sized comedy from inside the stack.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -21,25 +21,30 @@
 :root{
   --bg:#0f0f1a;--bg-sidebar:#0b0b14;--border:rgba(255,255,255,0.07);
   --text:#e0e0e0;--text-body:#c8c8cc;--text-muted:#6b7280;
-  --accent:#da7756;--accent-dark:#c4623f;--char-border:rgba(255,255,255,0.06);
+  --accent:#da7756;--accent-dark:#c4623f;
   --mono:'JetBrains Mono',monospace;--sans:'DM Sans',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:
-  linear-gradient(rgba(218,119,86,0.015) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(218,119,86,0.015) 1px,transparent 1px);
+  linear-gradient(rgba(218,119,86,0.012) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(218,119,86,0.012) 1px,transparent 1px);
   background-size:40px 40px;pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;position:relative;z-index:1}
-
-.sidebar{position:sticky;top:0;height:100vh;background:var(--bg-sidebar);border-right:1px solid var(--border);padding:32px 24px;display:flex;flex-direction:column;gap:16px;font-family:var(--mono);font-size:11px;overflow-y:auto}
-.sidebar-brand{font-size:13px;font-weight:700;color:#fff;letter-spacing:-0.02em;padding-bottom:16px;border-bottom:1px solid var(--border)}
-.sidebar-section{display:flex;flex-direction:column;gap:3px}
-.sidebar-label{color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-size:9px;margin-bottom:1px}
+body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);opacity:0.4}
+.layout{position:relative;z-index:1;min-height:100vh;padding-left:0;transition:padding-left 0.6s ease}
+.layout.sidebar-open{padding-left:220px}
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;background:var(--bg-sidebar);border-right:1px solid var(--border);padding:0 22px 24px;display:flex;flex-direction:column;gap:14px;font-family:var(--mono);font-size:11px;overflow-y:auto;transform:translateX(-220px);transition:transform 0.6s ease;z-index:10}
+.sidebar.visible{transform:translateX(0)}
+.sidebar-spacer{height:100px;flex-shrink:0}
+.sidebar-section{display:flex;flex-direction:column;gap:2px}
+.sidebar-label{color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-size:9px;margin-bottom:2px}
 .sidebar-value{color:var(--text-body);font-size:11px;line-height:1.5}
-.sidebar-divider{height:1px;background:var(--border);margin:2px 0}
+.sidebar-value-list{color:var(--text-body);font-size:11px;line-height:1.9}
+.sidebar-vibe{color:var(--text-body);font-size:11px;line-height:1.5}
+.sidebar-vibe .vm{opacity:0.4}
+.sidebar-divider{height:1px;background:var(--border);margin:6px 0}
 .sidebar-loader{display:flex;align-items:center;gap:6px;color:var(--accent);font-size:10px;min-height:18px;opacity:0;transition:opacity 0.4s ease}
 .sidebar-loader.active{opacity:1}
 .sidebar-loader-dots{display:inline-flex;gap:2px;flex-shrink:0}
@@ -48,19 +53,15 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
 .sidebar-loader-dots span:nth-child(3){animation-delay:0.4s}
 #sidebar-loader-text{transition:opacity 0.2s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sidebar-bottom{margin-top:auto}
-
-.main{max-width:700px;padding:56px 56px 96px}
-
-.title-main{font-family:var(--mono);color:#fff;line-height:1.05;letter-spacing:-0.035em;white-space:nowrap;margin-bottom:12px;opacity:0;transform:translateY(6px);transition:all 0.5s ease;padding-left:24px}
-.title-main.visible{opacity:1;transform:translateY(0)}
-.title-bold{font-weight:700;font-size:clamp(36px,6vw,56px)}
-.title-light{font-weight:400;font-size:clamp(26px,4.2vw,38px);color:rgba(255,255,255,0.5);margin-left:-0.25em;word-spacing:-0.15em}
-.title-cursor{display:inline-block;width:3px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:baseline;margin-left:3px}
-@keyframes blink{50%{opacity:0}}
-.subtitle{font-size:15px;color:var(--text-muted);font-style:italic;margin-bottom:24px;opacity:0;transition:opacity 0.6s ease;padding-left:24px}
-.subtitle.visible{opacity:1}
-
-.cold-zone{margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border);padding-left:24px}
+.main{max-width:680px;padding:56px 56px 96px}
+.prompt-line{font-family:var(--mono);font-size:13px;color:var(--text-body);line-height:1.7;display:flex;align-items:flex-start;margin-bottom:24px;transition:opacity 0.8s ease,transform 0.6s ease,font-size 0.6s ease,margin-bottom 0.6s ease}
+.prompt-line.ghost{opacity:0.2;transform:translateY(-4px);font-size:11px;margin-bottom:16px}
+.chevron{color:var(--accent);font-weight:700;margin-right:10px;flex-shrink:0;user-select:none;font-size:15px;line-height:1.55;transition:opacity 0.8s ease}
+.prompt-line.ghost .chevron{opacity:0.35}
+.prompt-text{flex:1;min-height:1.7em}
+.prompt-text .cursor{display:inline-block;width:7px;height:1.15em;background:var(--accent);opacity:0.8;animation:blink 1s step-end infinite;vertical-align:text-bottom;margin-left:2px}
+.prompt-line.ghost .cursor{display:none}
+.cold-zone{margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
 .cold-line{font-family:var(--mono);font-size:12px;color:var(--accent);display:flex;align-items:center;gap:10px;height:0;opacity:0;overflow:hidden;transition:height 0.25s ease,opacity 0.3s ease}
 .cold-line.visible{height:24px;opacity:1;margin-bottom:4px}
 .cold-line.dim{opacity:0.25}
@@ -69,35 +70,39 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
 .dots span:nth-child(2){animation-delay:0.2s}
 .dots span:nth-child(3){animation-delay:0.4s}
 @keyframes dotPulse{0%,80%,100%{opacity:0.3;transform:scale(0.8)}40%{opacity:1;transform:scale(1.2)}}
-
-.story{padding-left:24px;border-left:2px solid transparent;transition:border-color 0.4s ease}
-.story.active{border-left-color:var(--char-border)}
-.story-chunk{font-size:16px;line-height:1.85;color:var(--text-body);opacity:0;transform:translateY(4px);transition:opacity 0.2s ease,transform 0.2s ease;margin-bottom:24px}
-.story-chunk.visible{opacity:1;transform:translateY(0)}
-.char-name{font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;letter-spacing:-0.01em}
-.pivot-highlight{color:var(--accent);font-weight:600}
-
-.section{opacity:0;transform:translateY(10px);transition:all 0.6s ease;margin-bottom:36px}
+@keyframes blink{50%{opacity:0}}
+.title-main{font-family:var(--mono);color:#fff;line-height:1.05;letter-spacing:-0.035em;margin-bottom:14px;opacity:0;transform:translateY(6px);transition:all 0.5s ease}
+.title-main.visible{opacity:1;transform:translateY(0)}
+.title-bold{font-weight:700;font-size:clamp(36px,6vw,56px)}
+.title-light{font-weight:400;font-size:clamp(26px,4.2vw,38px);color:rgba(255,255,255,0.5);margin-left:-0.25em;word-spacing:-0.15em}
+.title-cursor{display:inline-block;width:3px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:baseline;margin-left:3px}
+.content-area{opacity:0;transition:opacity 0.6s ease}
+.content-area.visible{opacity:1}
+.subtitle{font-family:var(--sans);font-size:15px;color:var(--text-muted);font-style:italic;margin-bottom:48px;padding-left:4px}
+.h-section{font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:18px}
+.h-section .hl{color:var(--accent)}
+.p-body{font-family:var(--sans);font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:18px}
+.p-body:last-child{margin-bottom:0}
+.p-opener{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;line-height:1.8;margin-bottom:18px}
+.hl{color:var(--accent)}
+.ref{text-transform:uppercase;letter-spacing:0.01em}
+.section{opacity:0;transform:translateY(10px);transition:all 0.6s ease;margin-bottom:0}
 .section.visible{opacity:1;transform:translateY(0)}
-.sep{width:60px;height:2px;background:var(--accent);opacity:0.35;margin:48px 0}
-.meta-section{margin-bottom:32px}
-.meta-section .meta-text + .meta-text{margin-top:20px}
-.meta-section .meta-callout + .meta-text{margin-top:20px}
-.meta-label{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px}
-.meta-text{font-size:15px;line-height:1.75;color:var(--text-muted)}
-.meta-callout{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;line-height:1.75;margin-top:14px;margin-bottom:2px}
-.credits{margin-top:52px;padding-top:32px;border-top:1px solid var(--border)}
-.credit-row{display:grid;grid-template-columns:130px 1fr;gap:3px 20px;margin-bottom:20px;align-items:baseline}
+.section-inner{padding-bottom:48px}
+.sep{width:60px;height:2px;background:var(--accent);opacity:0.35;margin:0 0 48px}
+.credits{padding-top:36px;border-top:1px solid var(--border)}
+.credit-row{display:grid;grid-template-columns:120px 1fr;gap:3px 20px;margin-bottom:22px;align-items:baseline}
 .credit-role{font-family:var(--mono);color:var(--text-muted);font-size:10px;letter-spacing:0.03em;padding-top:2px}
-.credit-name{font-weight:600;color:#fff;font-size:15px;letter-spacing:-0.01em}
+.credit-name{font-family:var(--sans);font-weight:600;color:#fff;font-size:15px;letter-spacing:-0.01em}
 .credit-name a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
 .credit-name a:hover{border-bottom-color:var(--accent)}
-.credit-works{grid-column:2;font-size:13px;color:var(--text-muted);line-height:1.5}
-.cta-section{margin-top:52px;padding-top:32px;border-top:1px solid var(--border)}
+.credit-works{grid-column:2;font-family:var(--sans);font-size:13px;color:var(--text-muted);line-height:1.6;margin-top:2px}
+.credit-sub{display:grid;grid-template-columns:120px 1fr;gap:3px 20px;margin-top:20px;margin-bottom:28px;align-items:baseline}
+.cta-section{padding-top:36px;border-top:1px solid var(--border)}
 .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .cta-btn{font-family:var(--mono);font-size:13px;padding:11px 22px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;text-decoration:none;transition:all 0.2s ease;display:inline-block;line-height:1}
 .cta-btn:hover{background:var(--accent);color:var(--bg)}
-.cta-btn-no{border-color:rgba(255,255,255,0.1);color:var(--text-muted);font-size:11px;padding:10px 18px}
+.cta-btn-no{font-family:var(--mono);font-size:13px;padding:11px 22px;border:1.5px solid rgba(255,255,255,0.1);background:transparent;color:var(--text-muted);cursor:pointer;text-decoration:none;transition:all 0.2s ease;display:inline-block;line-height:1}
 .cta-btn-no:hover{background:rgba(255,255,255,0.04);color:var(--text);border-color:rgba(255,255,255,0.18)}
 .chat-box{display:none;margin-top:20px;border:1px solid var(--border);background:var(--bg-sidebar);padding:24px;max-width:420px;position:relative}
 .chat-close{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:14px;color:var(--text-muted);cursor:pointer;transition:color 0.2s;line-height:1}
@@ -112,139 +117,129 @@ body::after{content:'';position:fixed;inset:0;opacity:0.03;pointer-events:none;z
 .chat-send:hover{background:var(--accent-dark)}
 .chat-sent{display:none;font-family:var(--mono);font-size:13px;color:var(--accent);padding:20px 0}
 .chat-sent.active{display:block;animation:fadeIn 0.3s ease}
-
 .back-link{font-family:var(--mono);font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;display:inline-flex;align-items:center;gap:6px;padding-top:40px;margin-top:8px;border-top:1px solid var(--border);width:100%;transition:color 0.2s}
 .back-link:hover{color:var(--accent)}
 .back-arrow{transition:transform 0.2s}
 .back-link:hover .back-arrow{transform:translateX(3px)}
-
-.story-opener{font-size:17px;font-weight:600;color:#fff;line-height:1.85}
-
-
-
+.edit-toggle{display:none;position:fixed;bottom:20px;right:20px;z-index:100;font-family:var(--mono);font-size:10px;padding:8px 14px;background:var(--bg-sidebar);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all 0.2s;border-radius:4px}
+.edit-toggle.show{display:block}
+.edit-toggle:hover{border-color:var(--accent);color:var(--accent)}
+body.edit-mode [contenteditable]{outline:1px dashed rgba(218,119,86,0.25);outline-offset:4px;cursor:text}
+body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 @media(max-width:800px){
-  .layout{grid-template-columns:1fr}
+  .layout{padding-left:0 !important}
   .sidebar{display:none}
   .main{padding:32px 20px 60px}
-  .title-main{white-space:normal;padding-left:16px}.subtitle{padding-left:16px}.cold-zone{padding-left:16px}.story{padding-left:16px}
-  .credit-row{grid-template-columns:1fr;gap:2px}.credit-works{grid-column:1}
-  .cta-buttons{flex-direction:column}.cta-btn{text-align:center}.chat-box{max-width:100%}
+  .title-bold{font-size:clamp(30px,9vw,48px)}
+  .title-light{font-size:clamp(22px,6vw,34px)}
+  .credit-row,.credit-sub{grid-template-columns:1fr;gap:2px}
+  .credit-works{grid-column:1}
+  .credit-role{margin-bottom:2px}
+  .cta-buttons{flex-direction:column}
+  .cta-btn,.cta-btn-no{text-align:center;width:100%}
+  .chat-box{max-width:100%}
 }
+@media(max-width:400px){.main{padding:24px 16px 48px}}
 </style>
 </head>
 <body>
-<form name="vibecode" netlify netlify-honeypot="bot-field" hidden>
-  <input name="email"><textarea name="message"></textarea><input name="bot-field">
-</form>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar-brand">VIBE CODE</div><div class="sidebar-divider"></div>
-    <div class="sidebar-section"><div class="sidebar-label">format</div><div class="sidebar-value">short-form comedy</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">runtime</div><div class="sidebar-value">3–5 min / episode</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">location</div><div class="sidebar-value">a tech office</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">distribution</div><div class="sidebar-value">everywhere</div></div>
-    <div class="sidebar-divider"></div>
-    <div class="sidebar-section"><div class="sidebar-label">vibe</div><div class="sidebar-value">Silicon Valley meets Broad City in the age&nbsp;of&nbsp;AI</div></div>
-    <div class="sidebar-divider"></div>
-    <div class="sidebar-section"><div class="sidebar-label">status</div><div class="sidebar-value">in development</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">year</div><div class="sidebar-value">2026</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">genre</div><div class="sidebar-value">mockumentary / satire</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">based on</div><div class="sidebar-value">reality</div></div>
-    <div class="sidebar-section"><div class="sidebar-label">stakes</div><div class="sidebar-value">humanity</div></div>
-    <div class="sidebar-divider"></div>
-    <div class="sidebar-loader" id="sidebar-loader"><div class="sidebar-loader-dots"><span></span><span></span><span></span></div><span id="sidebar-loader-text"></span></div>
-    <div class="sidebar-bottom"></div>
-  </aside>
-
-  <div class="main">
-    <div class="title-main" id="title-el"></div>
-    <div class="subtitle" id="subtitle">A short-form comedy inside the AI revolution.</div>
-
-    <div class="cold-zone" id="cold-zone">
-      <div class="cold-line" id="c0"><div class="dots"><span></span><span></span><span></span></div><span>economy updating...</span></div>
-      <div class="cold-line" id="c1"><div class="dots"><span></span><span></span><span></span></div><span>labor transforming...</span></div>
-      <div class="cold-line" id="c2"><div class="dots"><span></span><span></span><span></span></div><span>anxiety loading...</span></div>
-    </div>
-
-    <div class="story" id="story">
-      <div class="story-chunk story-opener" id="s0"><strong>It's 2026. And everyone's making it&nbsp;up.</strong></div>
-      <div class="story-chunk" id="s1"><span class="char-name">MAX</span> is no exception. He's got strong experience — on paper. But with business moving to the terminal, his skillset isn't really working for the tech company where he works. Or, as of today, <em>used to work</em>. It's not that they don't like him. They just don't think he's…that good at things. Still, they let him stay in the office until he finds another&nbsp;job.</div>
-      <div class="story-chunk" id="s2"><span class="char-name">FRANKIE</span> fucking loves it. The hype beast account manager has been preaching the primacy of "agency" since GPT-3.5 and sees Max's "liberation" as the catalyst to activate growth for the both of them. Frankie wants to build and ship — if only he knew how to build anything. He convinces Max to just make his own thing. They just need to find a&nbsp;thing.</div>
-      <div class="story-chunk" id="s3"><span class="char-name">JAY</span> just thinks they're morons. The cynical sales engineer with a mortgage knows what's coming, and insists Max get another "real job" before he's trapped in the permanent&nbsp;underclass.</div>
-      <div class="story-chunk" id="s4"><span class="char-name">TAYARISHA</span> has a camera and Claude supermax. She's at the office shooting marketing content, but finds Max's crashout way more interesting. A mom with a real Hollywood career behind her, she traded directing for steady work. But when her remixes of Max's firing go viral, she sees an opportunity to make something real. Even if everything Max tries is completely fake. So while he's vibe-coding his career — flailing and failing to cash in on the AI gold rush — she's using him to <span class="pivot-highlight">vibe code a&nbsp;series.</span></div>
-    </div>
-
-    <div class="sep section" data-reveal></div>
-    <div class="section" data-reveal><div class="meta-section"><div class="meta-label">GOING LONG ON SHORT-FORM COMEDY</div><div class="meta-text">Advertising is out. Narratives are in. The market for attention is a bloodbath fought with a single weapon:&nbsp;story.</div><div class="meta-text" style="color:#fff">Someone is going to make the next tech satire — <em>Silicon Valley</em> for the AI&nbsp;boom.</div><div class="meta-callout"><strong>Why not make it <u>inside</u> a tech&nbsp;company?</strong></div><div class="meta-text">It doesn't need to be <em>about</em> the company. It just lives there. The office is a stage. And the brand gets cultural reach into ideal talent and client pools that compound over time, but costs less than temporary subway ads. Marketing content buys fractured attention. Creative content earns&nbsp;obsession.</div></div></div>
-    <div class="section" data-reveal><div class="meta-section"><div class="meta-label">FUNCTIONAL FORMAT</div><div class="meta-text">The series is multi-modal and multi-channel — scaling production as it proves its audience. Full episodes splice into vertical shorts on socials. Behind-the-scenes becomes bite-sized discovery content. Characters confide in their AI chatbots instead of the camera — confessionals for the Claude&nbsp;era.</div><div class="meta-text">Once the world is built in the office, everything that happens there — the CEO's takes, real customer stories, product demos — can exist as story color, not advertising. A post-modern soap opera. One production pipeline, infinite&nbsp;permutations.</div></div></div>
-    <div class="section" data-reveal><div class="meta-section"><div class="meta-label">STEALING THE AUDIENCE</div><div class="meta-text">"Vibe coding" is the most searched term in tech right now. And we can own it now. The series is itself vibe coded — built on AI-driven research pipelines that scan the news cycle for characters, controversies, and plotlines in real time. Episodes ride the coattails of subjects people are already looking for — redirecting the audience searching YouTube for AI tutorials into a story instead. Before they get&nbsp;stale.</div><div class="meta-text">Most TV series take years to make. We can make our episodes in days — staying in front of any Hollywood attempts to cash in on the cultural&nbsp;cachet.</div></div></div>
-    <div class="section" data-reveal><div class="meta-section"><div class="meta-label">THE RIGHT HOST</div><div class="meta-text">We're looking for a partner firm that already thinks like a media company but hasn't yet jumped from engagement to entertainment. A company that has major loyalty but minor reach outside its market. This show is a vehicle for broader capture.</div><div class="meta-text">The comedy punches outward — at the hype, at fake founders, at the entire fake-it-until-you-make-it vibecoding ecosystem. By operating responsibly and profitably in the background, it will be an island of competence in a sea of&nbsp;bullshit.</div></div></div>
-    <div class="section" data-reveal><div class="credits"><div class="credit-row"><div class="credit-role">creator & writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works"><em>HUMAN RESOURCE</em> (9 festival selections · feature in development). Max also runs a story consulting practice for AI startups and knows exactly where the narrative and comedy gold&nbsp;lives.</div></div><div class="credit-row"><div class="credit-role">director</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works"><em>SELAH AND THE SPADES</em> (Sundance) · <em>THE YOUNG WIFE</em> (SXSW) · <em>DAVE</em> · <em>THE TWILIGHT ZONE.</em> Her Hollywood track record is grounded in online content and audience&nbsp;building.</div></div><div class="credit-row"><div class="credit-role">producer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm4264129/" target="_blank" rel="noopener">FRANKIE SERATCH</a></div><div class="credit-works"><em>THE GRIEF OF OTHERS</em> (SXSW · Cannes) · <em>RECLUSE</em> (Tribeca) · <em>THE LANDING.</em> Along with acting and production, he works in tech and makes content for early-stage&nbsp;companies.</div></div></div></div>
-    <div class="section" data-reveal><div class="cta-section"><div class="cta-buttons" id="cta-buttons"><button class="cta-btn" onclick="openChat()">let's ship it</button><a href="https://www.mckinsey.com/careers/search-jobs" target="_blank" rel="noopener" class="cta-btn cta-btn-no">join the permanent underclass</a></div><form name="vibecode" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="chat-box" id="chat-box"><span class="chat-close" onclick="closeChat()">✕</span><input type="hidden" name="form-name" value="vibecode"><input name="bot-field" style="display:none"><label>email</label><input type="email" name="email" id="chat-email" placeholder="you@email.com" required><label>message for max</label><textarea name="message" id="chat-msg" required></textarea><button type="submit" class="chat-send">send</button></form><div class="chat-sent" id="chat-sent">message sent. stay tuned.</div></div></div>
-    <div class="section" data-reveal><a href="https://coyne-green.com" class="back-link" target="_blank" rel="noopener">more at coyne-green.com <span class="back-arrow">→</span></a></div>
-  </div>
+<div class="scanlines"></div>
+<form name="vibecode" netlify netlify-honeypot="bot-field" hidden><input name="email"><textarea name="message"></textarea><input name="bot-field"></form>
+<button class="edit-toggle" id="edit-toggle" onclick="toggleEdit()">✏ edit</button>
+<div class="layout" id="layout">
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-spacer"></div>
+<div class="sidebar-section"><div class="sidebar-label">format</div><div class="sidebar-value" data-editable>mockumentary</div></div>
+<div class="sidebar-section"><div class="sidebar-label">runtime</div><div class="sidebar-value" data-editable>3–5 min / episode</div></div>
+<div class="sidebar-section"><div class="sidebar-label">location</div><div class="sidebar-value" data-editable>your office</div></div>
+<div class="sidebar-divider"></div>
+<div class="sidebar-section"><div class="sidebar-label">aura</div><div class="sidebar-value" data-editable>boosting</div></div>
+<div class="sidebar-section"><div class="sidebar-label">era</div><div class="sidebar-value" data-editable>defining</div></div>
+<div class="sidebar-section"><div class="sidebar-label">vibe</div><div class="sidebar-vibe" data-editable>the office <span class="vm">meets</span> the&nbsp;models</div></div>
+<div class="sidebar-divider"></div>
+<div class="sidebar-section"><div class="sidebar-label">based on</div><div class="sidebar-value" data-editable>reality</div></div>
+<div class="sidebar-section"><div class="sidebar-label">stakes</div><div class="sidebar-value" data-editable>humanity</div></div>
+<div class="sidebar-section"><div class="sidebar-label">distribution</div><div class="sidebar-value-list" data-editable>YouTube<br>LinkedIn<br>TikTok<br>Instagram<br>X</div></div>
+<div class="sidebar-divider"></div>
+<div class="sidebar-loader" id="sidebar-loader"><div class="sidebar-loader-dots"><span></span><span></span><span></span></div><span id="sidebar-loader-text"></span></div>
+<div class="sidebar-bottom"></div>
+</aside>
+<div class="main">
+<div class="prompt-line" id="prompt-line"><span class="chevron">›</span><span class="prompt-text" id="prompt-text"><span class="cursor"></span></span></div>
+<div class="cold-zone" id="cold-zone">
+<div class="cold-line" id="c0"><div class="dots"><span></span><span></span><span></span></div><span>anxiety loading...</span></div>
+<div class="cold-line" id="c1"><div class="dots"><span></span><span></span><span></span></div><span>labor transforming...</span></div>
+<div class="cold-line" id="c2"><div class="dots"><span></span><span></span><span></span></div><span>economy updating...</span></div>
 </div>
-
-
-
+<div class="title-main" id="title-el"></div>
+<div class="content-area" id="content-area">
+<div class="subtitle" data-editable>bite-sized comedy from inside&nbsp;the&nbsp;stack</div>
+<div class="p-opener" data-editable>Work is changing. And it's really&nbsp;funny.</div>
+<div class="p-body" data-editable>The <span class="hl">AI boom</span> is pumping out stories and characters begging for satire. The next great workplace comedy needs a model to match the market: short-form, social-native, and shot inside <em>the&nbsp;building</em>.</div>
+<div class="p-body" data-editable>And one awesome company gets to make it all&nbsp;about&nbsp;them.</div>
+<div class="sep section" data-reveal></div>
+<div class="section" data-reveal><div class="section-inner">
+<div class="h-section">YOU CAN JUST <span class="hl">DO&nbsp;THINGS</span></div>
+<div class="p-body" data-editable>And things…<em>are being done</em>. Mailchimp invested $6M in an entertainment studio — because the audiences it attracted paid more, paid faster, and stayed longer. Bilt launched a micro sitcom on TikTok that's pulled 8&nbsp;million&nbsp;views.</div>
+<div class="p-body" data-editable>The model is proven. The format is proven. Nobody's put them together yet — social-native, short-form, about the biggest story in business&nbsp;right&nbsp;now.</div>
+</div></div>
+<div class="section" data-reveal><div class="section-inner">
+<div class="h-section">GOING LONG ON <span class="hl">SHORT-FORM</span></div>
+<div class="p-body" data-editable>The AI boom needs its <span class="ref">SILICON VALLEY</span>. But by the time it gets to TV, it'll be dated. VIBE CODE is built to ship in real time — tapping into the AI hype cycle's&nbsp;live&nbsp;feed.</div>
+<div class="p-body" data-editable>Full episodes premiere at 3–5 minutes, then get sliced and diced into the distinct native formats of Instagram, TikTok, X, and yes — LinkedFuckingIn, the final frontier of scripted content, where crucial&nbsp;audiences&nbsp;live. One production pipeline, infinite&nbsp;permutations.</div>
+</div></div>
+<div class="section" data-reveal><div class="section-inner">
+<div class="h-section">CUSTOM <span class="hl">HOSTING</span></div>
+<div class="p-body" data-editable>There's a global war for attention. And only one weapon that works: narrative. The right partner values story and is sick of paying for subway ads. But by working with real filmmakers, they can elevate the hottest trend in media into something that both pops&nbsp;and&nbsp;sustains.</div>
+<div class="p-body" data-editable>This can be a modern soap opera — a brand stamped on a purely fictional series, à la Bilt's <span class="ref">ROOMIES</span> — or it can deploy the medium for specific brand goals like hiring, product visibility, and&nbsp;fundraising.</div>
+<div class="p-body" data-editable>Satire targets the wider culture, leaving one company as the island of competence and cool in an ocean&nbsp;of&nbsp;chaos.</div>
+</div></div>
+<div class="section" data-reveal><div class="credits">
+<div class="credit-row"><div class="credit-role">creator &amp; writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works" data-editable><span class="ref">HUMAN RESOURCE</span> (11 festival selections · feature in development). Narrative consultant and writer&nbsp;for&nbsp;tech.</div></div>
+<div class="credit-row"><div class="credit-role">director</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works" data-editable><span class="ref">SELAH AND THE SPADES</span> (Sundance) · <span class="ref">THE YOUNG WIFE</span> (SXSW) · <span class="ref">DAVE</span> (FXX) · <span class="ref">THE TWILIGHT ZONE</span>&nbsp;(CBS).</div></div>
+<div class="credit-row"><div class="credit-role">producers</div><div class="credit-name"><a href="https://www.imdb.com/name/nm9296086/" target="_blank" rel="noopener">JACOB WAHBA</a></div><div class="credit-works" data-editable>Co-founder, SOLNIQUE. 20th Television (<span class="ref">ONLY MURDERS IN THE BUILDING</span>, <span class="ref">UP HERE</span>). Branded content: Nike, Dior, Vince Camuto, Brooks&nbsp;Brothers.</div></div>
+<div class="credit-sub"><div class="credit-role"></div><div class="credit-name"><a href="https://www.imdb.com/name/nm4264129/" target="_blank" rel="noopener">FRANKIE SERATCH</a></div><div class="credit-works" data-editable><span class="ref">RECLUSE</span> (Tribeca 2026) · <span class="ref">THE GRIEF OF OTHERS</span> (SXSW · Cannes) · <span class="ref">THE LANDING</span>&nbsp;(Off-Broadway).</div></div>
+</div></div>
+<div class="section" data-reveal><div class="cta-section">
+<div class="cta-buttons" id="cta-buttons"><button class="cta-btn" onclick="openChat()">let's ship it</button><a href="https://www.mckinsey.com/careers/search-jobs" target="_blank" rel="noopener" class="cta-btn-no">join the permanent underclass</a></div>
+<form name="vibecode" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="chat-box" id="chat-box"><span class="chat-close" onclick="closeChat()">✕</span><input type="hidden" name="form-name" value="vibecode"><input name="bot-field" style="display:none"><label>email</label><input type="email" name="email" id="chat-email" placeholder="you@email.com" required><label>message for max</label><textarea name="message" id="chat-msg" required></textarea><button type="submit" class="chat-send">send</button></form>
+<div class="chat-sent" id="chat-sent">message sent. stay&nbsp;tuned.</div>
+</div></div>
+<div class="section" data-reveal><a href="https://coyne-green.com" class="back-link" target="_blank" rel="noopener">more made-up stuff at coyne-green.com <span class="back-arrow">→</span></a></div>
+</div>
+</div>
+</div>
 <script>
+const PROMPT_PART1='craft the perfect vehicle to promote a tech brand. culturally relevant. custom formats for every platform.';
+const PROMPT_PART2=' make no mistakes.';
+const FULL_PROMPT=PROMPT_PART1+PROMPT_PART2;
 const sidebarMsgs=['future generating...','vibe coding...','ego compiling...','budget optimizing...','vibes calibrating...','delusion indexing...','rent calculating...','hustle rendering...','concept loading...','agency activating...','crash out buffering...','dreams compressing...','chaos normalizing...','tapping culture...','satirizing business...','safety net dissolving...'];
-const titleEl=document.getElementById('title-el'),subtitle=document.getElementById('subtitle');
+const layout=document.getElementById('layout');
+const promptLine=document.getElementById('prompt-line');
+const promptText=document.getElementById('prompt-text');
 const coldLines=[document.getElementById('c0'),document.getElementById('c1'),document.getElementById('c2')];
-const story=document.getElementById('story');
-const chunks=['s0','s1','s2','s3','s4'].map(id=>document.getElementById(id));
-const sl=document.getElementById('sidebar-loader'),slt=document.getElementById('sidebar-loader-text');
-
-function typeTitle(cb){
-  const b='VIBE CODE ',l='a series',f=b+l;let i=0;
-  titleEl.classList.add('visible');
-  const iv=setInterval(()=>{
-    if(i<f.length){
-      let h='';
-      if(i<b.length){h='<span class="title-bold">'+f.substring(0,i+1)+'</span>';h+='<span class="title-cursor" style="height:0.55em"></span>'}
-      else{h='<span class="title-bold">'+b+'</span><span class="title-light">'+f.substring(b.length,i+1)+'</span>';h+='<span class="title-cursor" style="height:0.4em"></span>'}
-      titleEl.innerHTML=h;i++
-    }else{clearInterval(iv);titleEl.innerHTML='<span class="title-bold">'+b+'</span><span class="title-light">'+l+'</span><span class="title-cursor" style="height:0.4em"></span>';cb()}
-  },38);
-}
-
-function runColdOpen(){
-  subtitle.classList.add('visible');
-  coldLines.forEach((line,i)=>{
-    setTimeout(()=>{
-      coldLines.forEach((p,j)=>{if(j<i)p.classList.add('dim')});
-      line.classList.add('visible');
-      if(i===coldLines.length-1)setTimeout(streamStory,500);
-    },800*(i+1));
-  });
-}
-
-function streamStory(){
-  story.classList.add('active');
-  chunks.forEach((c,i)=>{setTimeout(()=>c.classList.add('visible'),i*120)});
-  setTimeout(startSidebar,600);
-}
-
-function startSidebar(){
-  sl.classList.add('active');let idx=0;slt.textContent=sidebarMsgs[0];
-  setInterval(()=>{slt.style.opacity='0';setTimeout(()=>{idx=(idx+1)%sidebarMsgs.length;slt.textContent=sidebarMsgs[idx];slt.style.opacity='1'},150)},2400);
-}
-
-setTimeout(()=>typeTitle(runColdOpen),150);
-
-document.querySelectorAll('[data-reveal]').forEach(s=>{
-  new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:0.1}).observe(s);
-});
-
+const titleEl=document.getElementById('title-el');
+const contentArea=document.getElementById('content-area');
+const sidebar=document.getElementById('sidebar');
+const sl=document.getElementById('sidebar-loader');
+const slt=document.getElementById('sidebar-loader-text');
+const editBtn=document.getElementById('edit-toggle');
+let sidebarInterval=null;
+function typePrompt(cb){let i=0;const pauseAt=PROMPT_PART1.length;function tick(){if(i<FULL_PROMPT.length){let d=30+Math.random()*18;if(i>0&&FULL_PROMPT[i-1]==='.')d+=80;if(i===pauseAt)d=800;promptText.innerHTML=FULL_PROMPT.substring(0,i+1)+'<span class="cursor"></span>';i++;setTimeout(tick,d)}else{setTimeout(()=>{promptText.innerHTML=FULL_PROMPT;cb()},500)}}tick()}
+function ghostPrompt(cb){promptLine.classList.add('ghost');setTimeout(cb,500)}
+function runColdLines(cb){coldLines.forEach((line,i)=>{setTimeout(()=>{coldLines.forEach((p,j)=>{if(j<i)p.classList.add('dim')});line.classList.add('visible');if(i===coldLines.length-1)setTimeout(cb,600)},700*(i+1))})}
+function typeTitle(cb){const b='VIBE CODE ',l='a series',f=b+l;let i=0;titleEl.classList.add('visible');const iv=setInterval(()=>{if(i<f.length){let h='';if(i<b.length){h='<span class="title-bold">'+f.substring(0,i+1)+'</span><span class="title-cursor" style="height:0.55em"></span>'}else{h='<span class="title-bold">'+b+'</span><span class="title-light">'+f.substring(b.length,i+1)+'</span><span class="title-cursor" style="height:0.4em"></span>'}titleEl.innerHTML=h;i++}else{clearInterval(iv);titleEl.innerHTML='<span class="title-bold">'+b+'</span><span class="title-light">'+l+'</span><span class="title-cursor" style="height:0.4em"></span>';cb()}},38)}
+function showContent(){contentArea.classList.add('visible');setTimeout(()=>{sidebar.classList.add('visible');layout.classList.add('sidebar-open');startSidebar()},600)}
+function startSidebar(){sl.classList.add('active');let idx=0;slt.textContent=sidebarMsgs[0];if(sidebarInterval)clearInterval(sidebarInterval);sidebarInterval=setInterval(()=>{slt.style.opacity='0';setTimeout(()=>{idx=(idx+1)%sidebarMsgs.length;slt.textContent=sidebarMsgs[idx];slt.style.opacity='1'},150)},2400)}
+function initScrollReveal(){document.querySelectorAll('[data-reveal]').forEach(s=>{new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:0.1}).observe(s)})}
+initScrollReveal();
+setTimeout(()=>{typePrompt(()=>{ghostPrompt(()=>{runColdLines(()=>{typeTitle(showContent)})})})},300);
+if(new URLSearchParams(window.location.search).get('edit')==='true'){editBtn.classList.add('show')}
+let editMode=false;
+function toggleEdit(){editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);editBtn.textContent=editMode?'✓ done':'✏ edit';document.querySelectorAll('[data-editable]').forEach(el=>{el.contentEditable=editMode?'true':'false'})}
 function openChat(){document.getElementById('cta-buttons').style.display='none';document.getElementById('chat-box').classList.add('active');document.getElementById('chat-email').focus()}
 function closeChat(){document.getElementById('chat-box').classList.remove('active');document.getElementById('cta-buttons').style.display='flex'}
-document.getElementById('chat-box').addEventListener('submit',function(ev){
-  ev.preventDefault();const form=ev.target,sent=document.getElementById('chat-sent');
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
-  .then(r=>{if(!r.ok)throw new Error(r.status);form.classList.remove('active');form.style.display='none';sent.textContent='message sent. stay tuned.';sent.classList.add('active')})
-  .catch(()=>{form.classList.remove('active');form.style.display='none';sent.textContent='something broke. try emailing max@mcoynegreen.com';sent.classList.add('active')});
-});
-
+document.getElementById('chat-box').addEventListener('submit',function(ev){ev.preventDefault();const form=ev.target,sent=document.getElementById('chat-sent');fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).then(r=>{if(!r.ok)throw new Error(r.status);form.classList.remove('active');form.style.display='none';sent.textContent='message sent. stay tuned.';sent.classList.add('active')}).catch(()=>{form.classList.remove('active');form.style.display='none';sent.textContent='something broke. try emailing max@mcoynegreen.com';sent.classList.add('active')})});
 </script>
 </body>
 </html>
