@@ -13,6 +13,7 @@
 4. **3-strike rule:** If the same fix fails 3 times, stop. The approach is wrong.
 5. **No file opening:** Do NOT open files, folders, or Finder windows. Print filepaths as text.
 6. **No autonomous actions:** Present the plan, wait for approval, then execute.
+7. **No branches:** Always commit directly to the main branch. Do not create feature branches or use worktree isolation.
 
 ---
 
