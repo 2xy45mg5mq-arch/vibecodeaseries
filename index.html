@@ -198,7 +198,8 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="p-body" data-editable>In a sea of slop, story is the way to swim. And this is the fastest growing medium for story delivery. But it's still in its infancy. With refined narrative and filmmaking craft, the format can be used to make something even more potent and&nbsp;durable.</div>
 <div class="p-body" data-editable>And one company gets to make it about&nbsp;them.</div>
 </div></div>
-<div class="section" data-reveal><div class="credits">
+<div class="section" data-reveal><div class="credits" style="position:relative">
+<canvas id="creature-canvas" style="position:absolute;top:-13px;left:0;width:100%;height:26px;pointer-events:none"></canvas>
 <div class="credit-row"><div class="credit-role">creator &amp; writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works" data-editable><span class="ref">HUMAN RESOURCE</span> (11 festival selections · feature in development). Narrative consultant and writer&nbsp;for&nbsp;tech.</div></div>
 <div class="credit-row"><div class="credit-role">director</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works" data-editable><span class="ref">SELAH AND THE SPADES</span> (Sundance) · <span class="ref">THE YOUNG WIFE</span> (SXSW) · <span class="ref">DAVE</span> (FXX) · <span class="ref">THE TWILIGHT ZONE</span>&nbsp;(CBS).</div></div>
 <div class="credit-row"><div class="credit-role">producers</div><div class="credit-name"><a href="https://www.imdb.com/name/nm9296086/" target="_blank" rel="noopener">JACOB WAHBA</a></div><div class="credit-works" data-editable>Co-founder, SOLNIQUE. 20th Television (<span class="ref">ONLY MURDERS IN THE BUILDING</span>, <span class="ref">UP HERE</span>). Branded content: Nike, Dior, Vince Camuto, Brooks&nbsp;Brothers.</div></div>
@@ -243,6 +244,51 @@ let editMode=false;
 function toggleEdit(){editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);editBtn.textContent=editMode?'✓ done':'✏ edit';document.querySelectorAll('[data-editable]').forEach(el=>{el.contentEditable=editMode?'true':'false'})}
 function openChat(){document.getElementById('cta-buttons').style.display='none';document.getElementById('chat-box').classList.add('active');document.getElementById('chat-email').focus()}
 function closeChat(){document.getElementById('chat-box').classList.remove('active');document.getElementById('cta-buttons').style.display='flex'}
+// pixel creature
+(function(){
+const cc=document.getElementById('creature-canvas');
+if(!cc)return;
+const ctx=cc.getContext('2d');
+const P=2;// pixel size
+const W=10,H=8;// creature grid size
+let cx=40,dir=1,frame=0,speed=0.4;
+function resize(){cc.width=cc.offsetWidth*2;cc.height=cc.offsetHeight*2;ctx.scale(2,2)}
+resize();window.addEventListener('resize',resize);
+const body=[
+[0,0,0,1,1,1,1,0,0,0],
+[0,0,1,1,1,1,1,1,0,0],
+[0,1,1,1,1,1,1,1,1,0],
+[0,1,1,0,1,1,0,1,1,0],
+[0,1,1,1,1,1,1,1,1,0],
+[0,0,1,1,1,1,1,1,0,0],
+[0,0,0,1,0,0,1,0,0,0],
+[0,0,0,1,0,0,1,0,0,0]
+];
+const eyes=[[3,3],[6,3]];
+function draw(){
+ctx.clearRect(0,0,cc.width,cc.height);
+const legOff=Math.sin(frame*0.08)*1.5;
+const y0=cc.offsetHeight/2-H*P/2;
+for(let r=0;r<H;r++)for(let c=0;c<W;c++){
+if(!body[r][c])continue;
+let drawY=y0+r*P;
+// animate legs (last 2 rows)
+if(r>=6&&c<=3)drawY+=legOff;
+if(r>=6&&c>=6)drawY-=legOff;
+ctx.fillStyle='#da7756';
+if(eyes.some(e=>e[0]===c&&e[1]===r))ctx.fillStyle='#1a1a2e';
+ctx.fillRect(cx+c*P,drawY,P,P);
+}
+// move
+cx+=speed*dir;
+const maxX=cc.offsetWidth-W*P-10;
+if(cx>maxX){dir=-1}
+if(cx<10){dir=1}
+frame++;
+requestAnimationFrame(draw);
+}
+draw();
+})();
 document.getElementById('chat-box').addEventListener('submit',function(ev){ev.preventDefault();const form=ev.target,sent=document.getElementById('chat-sent');fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).then(r=>{if(!r.ok)throw new Error(r.status);form.classList.remove('active');form.style.display='none';sent.textContent='message sent. stay tuned.';sent.classList.add('active')}).catch(()=>{form.classList.remove('active');form.style.display='none';sent.textContent='something broke. try emailing max@mcoynegreen.com';sent.classList.add('active')})});
 </script>
 </body>
