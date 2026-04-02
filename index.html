@@ -4,18 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>vibe code a series</title>
-<meta property="og:title" content="vibe code a series">
-<meta property="og:description" content="the workplace comedy shot at your workplace.">
-<meta property="og:image" content="https://vibecodeaseries.com/og-vibecode.jpg">
+<meta property="og:title" content="short-form comedy with a long tail">
+<meta property="og:image" content="https://vibecodeaseries.com/og-vibecode.png">
 <meta property="og:url" content="https://vibecodeaseries.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="vibe code a series">
-<meta name="twitter:description" content="the workplace comedy shot at your workplace.">
-<meta name="twitter:image" content="https://vibecodeaseries.com/og-vibecode.jpg">
+<meta name="twitter:title" content="short-form comedy with a long tail">
+<meta name="twitter:image" content="https://vibecodeaseries.com/og-vibecode.png">
 <meta name="description" content="VIBE CODE — the workplace comedy shot at your workplace.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -35,7 +33,8 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .scanlines{position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);opacity:0.4}
 .layout{position:relative;z-index:1;min-height:100vh;padding-left:0;transition:padding-left 0.6s ease}
 .layout.sidebar-open{padding-left:220px}
-.sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;background:var(--bg-sidebar);border-right:1px solid var(--border);padding:0 22px 24px;display:flex;flex-direction:column;gap:14px;font-family:var(--mono);font-size:11px;overflow-y:auto;transform:translateX(-220px);transition:transform 0.6s ease;z-index:10}
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;background:var(--bg-sidebar);border-right:1px solid var(--border);padding:0 22px 24px;display:flex;flex-direction:column;gap:14px;font-family:var(--mono);font-size:11px;overflow-y:auto;scrollbar-width:none;transform:translateX(-220px);transition:transform 0.6s ease;z-index:10}
+.sidebar::-webkit-scrollbar{display:none}
 .sidebar.visible{transform:translateX(0)}
 .sidebar-spacer{height:100px;flex-shrink:0}
 .sidebar-section{display:flex;flex-direction:column;gap:2px}
@@ -80,6 +79,7 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .content-area.visible{opacity:1}
 .subtitle{font-family:var(--sans);font-size:15px;color:var(--text-muted);font-style:italic;margin-bottom:48px;padding-left:4px}
 .h-section{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:18px}
+.h-section .hl{color:#fff}
 .p-body{font-family:var(--sans);font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:18px}
 .p-body:last-child{margin-bottom:0}
 .p-opener{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;line-height:1.8;margin-bottom:18px}
@@ -166,9 +166,9 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="main">
 <div class="prompt-line" id="prompt-line"><span class="chevron">›</span><span class="prompt-text" id="prompt-text"><span class="cursor"></span></span></div>
 <div class="cold-zone" id="cold-zone">
-<div class="cold-line" id="c0"><div class="dots"><span></span><span></span><span></span></div><span>anxiety loading...</span></div>
-<div class="cold-line" id="c1"><div class="dots"><span></span><span></span><span></span></div><span>labor transforming...</span></div>
-<div class="cold-line" id="c2"><div class="dots"><span></span><span></span><span></span></div><span>economy updating...</span></div>
+<div class="cold-line" id="c0"><div class="dots"><span></span><span></span><span></span></div><span>assessing market...</span></div>
+<div class="cold-line" id="c1"><div class="dots"><span></span><span></span><span></span></div><span>selecting model...</span></div>
+<div class="cold-line" id="c2"><div class="dots"><span></span><span></span><span></span></div><span>crafting story...</span></div>
 </div>
 <div class="title-main" id="title-el"></div>
 <div class="content-area" id="content-area">
@@ -176,23 +176,27 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="sep section" data-reveal></div>
 <div class="section" data-reveal><div class="section-inner">
 <div class="p-opener" data-editable>AI is changing the nature of work. And it's actually really&nbsp;funny.</div>
-<div class="p-body" data-editable>But tech moves faster than Hollywood. By the time satire hits TV, it's&nbsp;dated.</div>
-<div class="p-body" data-editable><span class="ref">VIBE CODE</span> taps into the stories and characters dominating social feeds — and broadcasts on those same platforms in real time. A bite-sized <span class="ref">SILICON VALLEY</span> of the AI&nbsp;era.</div>
+<div class="p-body" data-editable>But technology is moving too fast for TV. It needs a model to match the market — short form, social native, and straight from the&nbsp;office.</div>
+<div class="p-body" data-editable>The stakes are high. The drama's universal. And the stories, characters, and concepts are ridiculous. <em>Someone</em> is going to make the next <span class="ref">SILICON VALLEY</span> about the AI&nbsp;revolution.</div>
+<div class="p-body" data-editable>It should probably be a tech&nbsp;company.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">HE'S GETTING FIRED. SHE'S GOING VIRAL.</div>
-<div class="p-body" data-editable>This short-form mockumentary follows a flailing tech worker unfit for the new economy. As he fights to avoid the permanent underclass, his content creator colleague films everything. This simple narrative framework supports unlimited story possibilities inside and outside the office. And the integrated filming style reduces expensive production&nbsp;needs.</div>
+<div class="h-section"><span class="hl">SHORT</span> FORM. BIG IDEAS.</div>
+<div class="p-body" data-editable>Shot in three-minute episodes, <span class="ref">VIBE CODE</span> is designed for flexible distribution. Shorter vertical cutouts are written into the script. After airing, clips are spliced into the unique format and grammar that performs best on Instagram, TikTok, X, and yes — <em>LinkedFuckingIn</em> — where core audiences are deeply&nbsp;underserved.</div>
+<div class="p-body" data-editable>One production pipeline, infinite&nbsp;permutations.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">SHORT FORM. BIG REACH.</div>
-<div class="p-body" data-editable>Shot initially as three-minute episodes, it's designed to be sliced and diced into the distinct formats that perform best on Instagram, TikTok, X, and yes — LinkedFuckingIn — where crucial audiences are deeply&nbsp;underserved.</div>
-<div class="p-body" data-editable>Within this world, core episodes can be supplemented by ad-hoc social content and even the host company's marketing campaigns. One production pipeline, infinite&nbsp;permutations.</div>
+<div class="h-section">HE'S GETTING <span class="hl">FIRED</span>. SHE'S GOING <span class="hl">VIRAL</span>.</div>
+<div class="p-body" data-editable>The mockumentary format makes production simple and storylines&nbsp;adaptable.</div>
+<div class="p-opener" data-editable style="color:var(--text-muted);font-style:italic">A low-value tech worker tries to vibe code his way out of the permanent underclass while his colleague milks his crash-out for&nbsp;clicks.</div>
+<div class="p-body" data-editable>This basic setup builds a world around a company, supporting ad-hoc vertical content and even direct marketing&nbsp;integration.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">THE MOST ADVANCED MODEL</div>
-<div class="p-body" data-editable>Scripted, branded, social-native content is exploding. Bilt's <span class="ref">ROOMIES</span> has pulled 8 million views. ClickUp's comedy content generates 200 million monthly impressions. And e.l.f. Cosmetics just premiered a branded mockumentary at the Chinese&nbsp;Theatre.</div>
-<div class="p-body" data-editable>The format is established. But the subject matter is untapped. Eventually, <em>someone</em> is going to make the short-form tech satire. And one smart company can make it all about&nbsp;them.</div>
-<div class="p-body" data-editable>If they want to. We're looking for a real creative partner. And with a deliberately flexible story structure, the series can be custom-fit to the host's actual needs. Whether that's simply stamping their brand or integrating it with their marketing ops, this is a platform to convey culture, vision, and even products in narrative form worth&nbsp;watching.</div>
+<div class="h-section">ADVANCING <span class="hl">MODELS</span></div>
+<div class="p-body" data-editable>Scripted, branded, social-native content is&nbsp;exploding.</div>
+<div class="p-body" data-editable>Bilt's <span class="ref">ROOMIES</span> has pulled 8 million views. ClickUp's comedy content generates 200 million monthly impressions. And e.l.f. Cosmetics just premiered a branded mockumentary at the Chinese&nbsp;Theatre.</div>
+<div class="p-body" data-editable>In a sea of slop, story is the way to swim. And this is the fastest growing medium for story delivery. But it's still in its infancy. With refined narrative and filmmaking craft, the format can be used to make something even more potent and&nbsp;durable.</div>
+<div class="p-body" data-editable>And one company gets to make it about&nbsp;them.</div>
 </div></div>
 <div class="section" data-reveal><div class="credits">
 <div class="credit-row"><div class="credit-role">creator &amp; writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works" data-editable><span class="ref">HUMAN RESOURCE</span> (11 festival selections · feature in development). Narrative consultant and writer&nbsp;for&nbsp;tech.</div></div>
@@ -205,13 +209,13 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <form name="vibecode" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="chat-box" id="chat-box"><span class="chat-close" onclick="closeChat()">✕</span><input type="hidden" name="form-name" value="vibecode"><input name="bot-field" style="display:none"><label>email</label><input type="email" name="email" id="chat-email" placeholder="you@email.com" required><label>message for max</label><textarea name="message" id="chat-msg" required></textarea><button type="submit" class="chat-send">send</button></form>
 <div class="chat-sent" id="chat-sent">message sent. stay&nbsp;tuned.</div>
 </div></div>
-<div class="section" data-reveal><a href="https://coyne-green.com" class="back-link" target="_blank" rel="noopener">more made-up stuff at coyne-green.com <span class="back-arrow">→</span></a></div>
+<div class="section" data-reveal><a href="https://coyne-green.com" class="back-link" target="_blank" rel="noopener">more at coyne-green.com <span class="back-arrow">→</span></a></div>
 </div>
 </div>
 </div>
 <script>
-const PROMPT_PART1='craft the ideal media vehicle to promote a tech brand. customizable across platforms.';
-const PROMPT_PART2=' make no mistakes.';
+const PROMPT_PART1='create ideal media vehicle to promote a tech brand. customizable to company. make sure it\'s actually good.';
+const PROMPT_PART2=' no mistakes.';
 const FULL_PROMPT=PROMPT_PART1+PROMPT_PART2;
 const sidebarMsgs=['future generating...','vibe coding...','ego compiling...','budget optimizing...','vibes calibrating...','delusion indexing...','rent calculating...','hustle rendering...','concept loading...','agency activating...','crash out buffering...','dreams compressing...','chaos normalizing...','tapping culture...','satirizing business...','safety net dissolving...'];
 const layout=document.getElementById('layout');
