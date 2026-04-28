@@ -37,6 +37,8 @@ After deploying, also commit and push to GitHub to keep the repo in sync:
 cd ~/websites/vibecodeaseries && git add -A && git commit -m "[describe change]" && git push
 ```
 
+**Regen OG image:** `npm install && npm run og` (writes `og-vibecode.png`; template is `og-template.html`).
+
 **Netlify site ID:** c0548b28-6056-4bc1-a887-2238c8a0e083
 **Netlify URL:** https://incandescent-douhua-1976db.netlify.app
 **Netlify account:** mcoynegreen@gmail.com (mcoynegreen's team)

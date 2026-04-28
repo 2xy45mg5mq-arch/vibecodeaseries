@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  background:#0f0f1a;
+  font-family:'JetBrains Mono',monospace;
+  position:relative;
+  color:#fff;
+}
+body::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(218,119,86,0.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(218,119,86,0.012) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.status{
+  position:absolute;
+  top:140px;
+  left:140px;
+  display:flex;flex-direction:column;gap:18px;
+  font-size:38px;
+  color:#da7756;
+  letter-spacing:-0.01em;
+  font-weight:400;
+}
+.status .row{display:flex;align-items:center;gap:18px}
+.dots{display:inline-flex;gap:6px}
+.dots span{width:10px;height:10px;background:#da7756;border-radius:50%;display:inline-block}
+.title{
+  position:absolute;
+  top:360px;
+  left:60px;
+  right:60px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  font-size:200px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-0.04em;
+}
+.title .vibe{color:#fff}
+.title .code{color:rgba(255,255,255,0.5);font-weight:400}
+.series{
+  position:absolute;
+  right:90px;
+  top:560px;
+  font-size:64px;
+  font-weight:400;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:-0.03em;
+  line-height:1;
+  display:flex;align-items:flex-end;gap:8px;
+}
+.series::after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height:46px;
+  background:#da7756;
+}
+</style>
+</head>
+<body>
+<div class="status">
+  <div class="row"><span class="dots"><span></span><span></span><span></span></span><span>economy transforming...</span></div>
+  <div class="row"><span class="dots"><span></span><span></span><span></span></span><span>humanity updating...</span></div>
+  <div class="row"><span class="dots"><span></span><span></span><span></span></span><span>narratives forming...</span></div>
+</div>
+<div class="title">
+  <span class="vibe">VIBE</span>
+  <span class="code">CODE</span>
+</div>
+<div class="series">a series</div>
+</body>
+</html>

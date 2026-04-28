@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "og": "node generate-og.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}
