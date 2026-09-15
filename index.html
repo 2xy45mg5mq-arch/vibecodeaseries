@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>vibe code — short form...long tail</title>
-<meta property="og:title" content="short form...long tail">
+<title>vibe code</title>
+<meta property="og:title" content="everybody's faking it">
+<meta property="og:description" content="short form comedy with a long tail">
 <meta property="og:image" content="https://vibecodeaseries.com/og-vibecode.png">
 <meta property="og:url" content="https://vibecodeaseries.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="short form...long tail">
+<meta name="twitter:title" content="everybody's faking it">
 <meta name="twitter:image" content="https://vibecodeaseries.com/og-vibecode.png">
-<meta name="description" content="VIBE CODE — the workplace comedy shot at your workplace.">
+<meta name="description" content="short form comedy with a long tail">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
@@ -120,6 +121,13 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .back-link:hover{color:var(--accent)}
 .back-arrow{transition:transform 0.2s}
 .back-link:hover .back-arrow{transform:translateX(3px)}
+.episodes-toggle{margin-top:-4px}
+.episodes-summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:inline-flex;align-items:center;gap:6px;padding:4px 0;transition:color 0.2s}
+.episodes-summary::-webkit-details-marker{display:none}
+.episodes-summary:hover{color:var(--accent)}
+.episodes-chevron{color:var(--accent);display:inline-block;transition:transform 0.2s}
+.episodes-toggle[open] .episodes-chevron{transform:rotate(90deg)}
+.episodes-list{padding-top:14px}
 .edit-toggle{display:none;position:fixed;bottom:20px;right:20px;z-index:100;font-family:var(--mono);font-size:10px;padding:8px 14px;background:var(--bg-sidebar);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all 0.2s;border-radius:4px}
 .edit-toggle.show{display:block}
 .edit-toggle:hover{border-color:var(--accent);color:var(--accent)}
@@ -150,14 +158,12 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="sidebar-spacer"></div>
 <div class="sidebar-section"><div class="sidebar-label">format</div><div class="sidebar-value" data-editable>mockumentary</div></div>
 <div class="sidebar-section"><div class="sidebar-label">runtime</div><div class="sidebar-value" data-editable>3–5 min / episode</div></div>
-<div class="sidebar-section"><div class="sidebar-label">location</div><div class="sidebar-value" data-editable>your office</div></div>
 <div class="sidebar-divider"></div>
 <div class="sidebar-section"><div class="sidebar-label">aura</div><div class="sidebar-value" data-editable>boosting</div></div>
 <div class="sidebar-section"><div class="sidebar-label">era</div><div class="sidebar-value" data-editable>defining</div></div>
-<div class="sidebar-section"><div class="sidebar-label">vibe</div><div class="sidebar-vibe" data-editable>the office <span class="vm">meets</span> the&nbsp;models</div></div>
 <div class="sidebar-divider"></div>
 <div class="sidebar-section"><div class="sidebar-label">based on</div><div class="sidebar-value" data-editable>reality</div></div>
-<div class="sidebar-section"><div class="sidebar-label">stakes</div><div class="sidebar-value" data-editable>humanity</div></div>
+<div class="sidebar-section"><div class="sidebar-label">stakes</div><div class="sidebar-value" data-editable>human value</div></div>
 <div class="sidebar-section"><div class="sidebar-label">distribution</div><div class="sidebar-value-list" data-editable>YouTube<br>LinkedIn<br>TikTok<br>Instagram<br>X</div></div>
 <div class="sidebar-divider"></div>
 <div class="sidebar-loader" id="sidebar-loader"><div class="sidebar-loader-dots"><span></span><span></span><span></span></div><span id="sidebar-loader-text"></span></div>
@@ -172,30 +178,47 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 </div>
 <div class="title-main" id="title-el"></div>
 <div class="content-area" id="content-area">
-<div class="subtitle" data-editable>A bullshit AI startup on the verge of making it discovers everyone else might be faking it.</div>
+<div class="subtitle" data-editable>Everybody's faking it. One day they might even make it.</div>
 <div class="sep section" data-reveal></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="p-opener" data-editable><span style="color:var(--accent)">AI is changing the nature of work.</span> And it's actually really&nbsp;funny.</div>
-<div class="p-body" data-editable>The economy is being rewritten in real time. Human value is up for debate. This is the defining story of the decade — and it's almost invisible in scripted&nbsp;media.</div>
-<div class="p-body" data-editable>But technology is moving too fast for TV. It needs a model to match the market — short form, social native, and straight from the&nbsp;office.</div>
-<div class="p-body" data-editable><em>Someone</em> is going to make the defining tech satire of the AI&nbsp;era. And it should probably be a tech&nbsp;company.</div>
+<div class="p-body" data-editable>Two laid-off tech workers start a company.</div>
+<div class="p-body" data-editable>One knows how to build. The other knows how to sell. Neither knows what the hell they're doing.</div>
+<div class="p-body" data-editable>As they try to vibe code their way to success, their failed filmmaker neighbor films their journey for a documentary — and for laughs on TikTok.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section" style="text-transform:none"><span class="hl">SILICON VALLEY</span> meets <span class="hl">THE STUDIO</span>…in this&nbsp;economy?</div>
-<div class="p-body" data-editable>Shot in three-minute episodes, <span class="ref">VIBE CODE</span> is built for flexible distribution. Vertical cutouts are written into the script. After airing, clips are spliced into the format and grammar that performs best on Instagram, TikTok, X, and yes — <em>LinkedFuckingIn</em> — where core audiences are deeply&nbsp;underserved.</div>
-<div class="p-body" data-editable>One production pipeline, infinite&nbsp;permutations.</div>
+<div class="h-section">A WORKPLACE COMEDY…IN THIS <span class="hl">ECONOMY</span>?</div>
+<div class="p-body" data-editable>Short form. Vertical friendly. Socially&nbsp;distributed.</div>
+<div class="p-body" data-editable>In this world, everything is content. Same goes for the series. Main episodes are shot mockumentary style. Private chatbot conversations become the talking-head confessionals. Clips are written in and cut out for specific platforms, all the way down the value chain: YouTube to Instagram to X to TikTok to <em>LinkedFuckingIn</em>. The stories and characters follow the&nbsp;audience.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">ADVANCING <span class="hl">MODELS</span></div>
-<div class="p-body" data-editable>Scripted, branded, social-native content is exploding. Bilt's <span class="ref">ROOMIES</span> has pulled 8 million views. ClickUp's comedy content generates 200 million monthly impressions. And e.l.f. Cosmetics just premiered a branded mockumentary at the Chinese&nbsp;Theatre.</div>
-<div class="p-body" data-editable>This is the fastest growing medium for story delivery — and it's still in its infancy. With refined narrative and filmmaking craft, the format can be used to make something more potent and&nbsp;durable. And one company gets to make it their&nbsp;own.</div>
+<div class="h-section"><span class="hl">CHARACTERS</span></div>
+<div class="p-body" data-editable><strong>CAL</strong> used to crush at a job that doesn't exist anymore. He can email, he can research, and he can make pitch decks — just not better than a free-tier LLM. But "skills" are so 2020. All that matters to Cal is creativity and agency. Now that he's fired, he just needs to learn how to, you know, <em>do that</em>.</div>
+<div class="p-body" data-editable><strong>BEN</strong> can actually make stuff. His old company didn't want to let him go, but investors wanted to see headcount replaced by tokens. With Cal, he has a champion, a hypeman, and a fountain of ideas he'll never be able to finish. But at least he has a place on the sofa.</div>
+<div class="p-body" data-editable><strong>YARI</strong> makes movies. In theory. In practice, she's getting nowhere. Cal's next-door neighbor, she offers to film a documentary about their company, promising a riveting tale of their inevitable rise. She finds a lot more success posting their failures on TikTok behind their&nbsp;back.</div>
+</div></div>
+<div class="section" data-reveal><div class="section-inner">
+<div class="h-section">SEASON <span class="hl">ONE</span></div>
+<div class="p-body" data-editable>Yari films Cal and Ben starting a company — beginning with them deciding which company to&nbsp;start.</div>
+<details class="episodes-toggle" id="episodes-toggle">
+<summary class="episodes-summary">episodes <span class="episodes-chevron">›</span></summary>
+<div class="episodes-list">
+<div class="p-body" data-editable><strong>1 — THOUGHT LEADER.</strong> After being fired from a tech giant, Cal and Ben hire their filmmaker neighbor Yari to shoot a promo for their company. But they don't know what that company is. Cal convinces Ben that they need to "Always Be Posting" to establish themselves as thought leaders. Without any refined thoughts, Cal and Ben accidentally record their argument over what to post — and send it to a chatbot. It comes back with a perfectly proportioned pile of slop, topped with Ben's single hot take. Ben refuses to post it. But while he's in the bathroom, Cal sends it into the world. It goes viral and by the time Ben comes back, they have an investor meeting scheduled.</div>
+<div class="p-body" data-editable><strong>2 — PITCH.</strong> Cal kills it in their zoom investor meeting. But wildly overpromises what the product can produce — leaving Ben on the hook to build a demo he has no idea how to build. Meanwhile, Yari lies to her husband about her new "paying" job. Desperate for a quick win, she posts a video of Cal and Ben on TikTok with the title "two idiots start a company".</div>
+<div class="p-body" data-editable><strong>3 — PRODUCT.</strong> Ben vibe codes a demo in an afternoon. Cal is ecstatic at how well it works and sends it to the investor, who asks for a roadmap. But he quickly learns it's not what they promised. After Yari's secret video gets more traction than anything she's ever posted, she gets a call from an actual paying client.</div>
+<div class="p-body" data-editable><strong>4 — ROADMAP.</strong> Cal and Ben lock themselves in a room until the roadmap is finished, playing chatbots off each other and upgrading the deck until it's unrecognizable. In a fight, we learn Cal is funding the company through a settlement he got when he was hit by a UPS truck. Ben considers whether he needs to be independent, and find a truck of his own. Before things get out of hand, they get incredible news: a customer is interested in their product. Capturing all this on camera, Yari turns down the corporate gig to keep filming the doc. But keeps posting on TikTok.</div>
+<div class="p-body" data-editable><strong>5 — CUSTOMER.</strong> Cal and Ben go to their first sales meeting, with Yari in tow to get footage. Everything is going perfectly until they learn the customer is only interested because of Yari's TikTok videos. Cal sees what she's been posting and fires Yari, who takes the corporate gig she turned down. Before they even leave the office, they get an email from the investor — who's seen the videos too, and is passing on their company.</div>
+<div class="p-body" data-editable><strong>6 — ONE WAY UP.</strong> With no prospects, Cal and Ben realize their only way forward is building on their TikTok traction. After failing to film themselves, they show up at Yari's corporate gig to beg her to come back, causing a scene. But instead of getting fired, Yari's client offers to fund a documentary about their company. With a fresh start for all of them, Cal and Ben go back to the drawing board. Then Ben gets a call from the investor offering him a real job.</div>
+</div>
+</details>
+</div></div>
+<div class="section" data-reveal><div class="section-inner">
+<div class="h-section">SEASON <span class="hl">TWO</span></div>
+<div class="p-body" data-editable>With a real budget to film, Yari follows Cal and Ben as they hit the road to raise money, sell their new product, and hire&nbsp;talent.</div>
 </div></div>
 <div class="section" data-reveal><div class="credits" style="position:relative">
 <canvas id="creature-canvas" style="position:absolute;top:-13px;left:0;width:100%;height:26px;pointer-events:none"></canvas>
-<div class="credit-row"><div class="credit-role">creator &amp; writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works" data-editable><span class="ref">HUMAN RESOURCE</span> (11 festival selections · feature in development). Narrative consultant and writer&nbsp;for&nbsp;tech.</div></div>
-<div class="credit-row"><div class="credit-role">director</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works" data-editable><span class="ref">SELAH AND THE SPADES</span> (Sundance) · <span class="ref">THE YOUNG WIFE</span> (SXSW) · <span class="ref">DAVE</span> (FXX) · <span class="ref">THE TWILIGHT ZONE</span>&nbsp;(CBS).</div></div>
-<div class="credit-row"><div class="credit-role">producers</div><div class="credit-name"><a href="https://www.imdb.com/name/nm9296086/" target="_blank" rel="noopener">JACOB WAHBA</a></div><div class="credit-works" data-editable>Co-founder, SOLNIQUE. 20th Television (<span class="ref">ONLY MURDERS IN THE BUILDING</span>, <span class="ref">UP HERE</span>). Branded content: Nike, Dior, Vince Camuto, Brooks&nbsp;Brothers.</div></div>
-<div class="credit-sub"><div class="credit-role"></div><div class="credit-name"><a href="https://www.imdb.com/name/nm4264129/" target="_blank" rel="noopener">FRANKIE SERATCH</a></div><div class="credit-works" data-editable><span class="ref">RECLUSE</span> (Tribeca 2026) · <span class="ref">THE GRIEF OF OTHERS</span> (SXSW · Cannes) · <span class="ref">THE LANDING</span>&nbsp;(Off-Broadway).</div></div>
+<div class="credit-row"><div class="credit-role">creator · writer</div><div class="credit-name"><a href="https://www.imdb.com/name/nm13065899/" target="_blank" rel="noopener">MAX COYNE-GREEN</a></div><div class="credit-works" data-editable>Writer of tech horror comedy, <span class="ref">HUMAN RESOURCE</span> (15 festival selections · feature in development). Narrative consultant and writer for AI&nbsp;companies.</div></div>
+<div class="credit-row"><div class="credit-role">director · yari</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works" data-editable><span class="ref">SELAH AND THE SPADES</span> (Sundance) · <span class="ref">THE YOUNG WIFE</span> (SXSW) · <span class="ref">DAVE</span> (FXX) · <span class="ref">THE TWILIGHT ZONE</span>&nbsp;(CBS).</div></div>
 </div></div>
 <div class="section" data-reveal><div class="cta-section">
 <div class="cta-buttons" id="cta-buttons"><button class="cta-btn" onclick="openChat()">let's ship it</button><a href="https://www.mckinsey.com/careers/search-jobs" target="_blank" rel="noopener" class="cta-btn-no">join the permanent underclass</a></div>
