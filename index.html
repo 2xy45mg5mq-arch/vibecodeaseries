@@ -73,15 +73,16 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 @keyframes blink{50%{opacity:0}}
 .title-main{font-family:var(--mono);color:#fff;line-height:1.05;letter-spacing:-0.035em;margin-bottom:14px;opacity:0;transform:translateY(6px);transition:all 0.5s ease}
 .title-main.visible{opacity:1;transform:translateY(0)}
-.title-bold{font-weight:700;font-size:clamp(36px,6vw,56px)}
-.title-light{font-weight:400;font-size:clamp(26px,4.2vw,38px);color:rgba(255,255,255,0.5);margin-left:-0.25em;word-spacing:-0.15em}
+.title-bold{font-weight:700;font-size:clamp(36px,6vw,56px);word-spacing:-0.2em}
+.title-light{font-weight:400;font-size:clamp(26px,4.2vw,38px);color:rgba(255,255,255,0.5);margin-left:-0.05em;word-spacing:-0.15em}
 .title-cursor{display:inline-block;width:3px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:baseline;margin-left:3px}
 .content-area{opacity:0;transition:opacity 0.6s ease}
 .content-area.visible{opacity:1}
-.subtitle{font-family:var(--sans);font-size:18px;color:var(--text-muted);font-style:italic;margin-bottom:48px;padding-left:4px}
-.h-section{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:18px}
-.h-section .hl{color:#fff}
-.p-body{font-family:var(--sans);font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:18px}
+.subtitle{font-family:var(--sans);font-size:18px;color:var(--text-body);font-style:italic;margin-bottom:48px;padding-left:4px}
+.h-section{font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:18px}
+.p-body{font-family:var(--sans);font-size:15px;line-height:1.8;color:var(--text-body);margin-bottom:18px}
+.p-body strong{color:var(--accent);font-weight:700}
+.p-body strong.season-label{color:#fff}
 .p-body:last-child{margin-bottom:0}
 .p-opener{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;line-height:1.8;margin-bottom:18px}
 .hl{color:var(--accent)}
@@ -96,7 +97,7 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .credit-name{font-family:var(--sans);font-weight:600;color:#fff;font-size:15px;letter-spacing:-0.01em}
 .credit-name a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
 .credit-name a:hover{border-bottom-color:var(--accent)}
-.credit-works{grid-column:2;font-family:var(--sans);font-size:13px;color:var(--text-muted);line-height:1.6;margin-top:2px}
+.credit-works{grid-column:2;font-family:var(--sans);font-size:13px;color:var(--text-body);line-height:1.6;margin-top:2px}
 .credit-sub{display:grid;grid-template-columns:120px 1fr;gap:3px 20px;margin-top:20px;margin-bottom:28px;align-items:baseline}
 .cta-section{padding-top:36px;border-top:1px solid var(--border)}
 .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
@@ -105,7 +106,7 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .cta-btn-no{font-family:var(--mono);font-size:13px;padding:11px 22px;border:1.5px solid rgba(255,255,255,0.1);background:transparent;color:var(--text-muted);cursor:pointer;text-decoration:none;transition:all 0.2s ease;display:inline-block;line-height:1}
 .cta-btn-no:hover{background:rgba(255,255,255,0.04);color:var(--text);border-color:rgba(255,255,255,0.18)}
 .chat-box{display:none;margin-top:20px;border:1px solid var(--border);background:var(--bg-sidebar);padding:24px;max-width:420px;position:relative}
-.chat-close{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:14px;color:var(--text-muted);cursor:pointer;transition:color 0.2s;line-height:1}
+.chat-close{position:absolute;top:-26px;right:-18px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--text-muted);cursor:pointer;transition:color 0.2s;line-height:1;background:none;border:none;padding:0;appearance:none}
 .chat-close:hover{color:var(--accent)}
 .chat-box.active{display:block;animation:fadeIn 0.3s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
@@ -121,8 +122,8 @@ body::after{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;
 .back-link:hover{color:var(--accent)}
 .back-arrow{transition:transform 0.2s}
 .back-link:hover .back-arrow{transform:translateX(3px)}
-.episodes-toggle{margin-top:-4px}
-.episodes-summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:inline-flex;align-items:center;gap:6px;padding:4px 0;transition:color 0.2s}
+.episodes-toggle{margin-top:-8px;margin-bottom:28px}
+.episodes-summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:15px;line-height:1.2;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-body);display:inline-flex;align-items:center;gap:6px;padding:16px 0;transition:color 0.2s}
 .episodes-summary::-webkit-details-marker{display:none}
 .episodes-summary:hover{color:var(--accent)}
 .episodes-chevron{color:var(--accent);display:inline-block;transition:transform 0.2s}
@@ -147,6 +148,10 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
   .chat-box{max-width:100%}
 }
 @media(max-width:400px){.main{padding:24px 16px 48px}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -176,44 +181,43 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="cold-line" id="c1"><div class="dots"><span></span><span></span><span></span></div><span>selecting model...</span></div>
 <div class="cold-line" id="c2"><div class="dots"><span></span><span></span><span></span></div><span>crafting story...</span></div>
 </div>
-<div class="title-main" id="title-el"></div>
+<h1 class="title-main" id="title-el"></h1>
 <div class="content-area" id="content-area">
-<div class="subtitle" data-editable>Everybody's faking it. One day they might even make it.</div>
+<div class="subtitle" data-editable>Everybody's faking it. Somebody needs to make it.</div>
 <div class="sep section" data-reveal></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="p-body" data-editable>Two laid-off tech workers start a company.</div>
-<div class="p-body" data-editable>One knows how to build. The other knows how to sell. Neither knows what the hell they're doing.</div>
+<div class="p-body" data-editable>Two laid-off tech workers start a company. One can build. The other can sell. Neither knows what the hell they're doing.</div>
 <div class="p-body" data-editable>As they try to vibe code their way to success, their failed filmmaker neighbor films their journey for a documentary — and for laughs on TikTok.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">A WORKPLACE COMEDY…IN THIS <span class="hl">ECONOMY</span>?</div>
+<h2 class="h-section">A WORKPLACE COMEDY…<span class="hl">IN THIS ECONOMY?</span></h2>
 <div class="p-body" data-editable>Short form. Vertical friendly. Socially&nbsp;distributed.</div>
 <div class="p-body" data-editable>In this world, everything is content. Same goes for the series. Main episodes are shot mockumentary style. Private chatbot conversations become the talking-head confessionals. Clips are written in and cut out for specific platforms, all the way down the value chain: YouTube to Instagram to X to TikTok to <em>LinkedFuckingIn</em>. The stories and characters follow the&nbsp;audience.</div>
 </div></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section"><span class="hl">CHARACTERS</span></div>
+<div style="position:relative;padding-top:36px;border-top:1px solid var(--border)">
+<canvas id="creature-canvas-2" style="position:absolute;top:-13px;left:0;width:100%;height:26px;pointer-events:none"></canvas>
+</div>
+<h2 class="h-section">CHARACTERS</h2>
 <div class="p-body" data-editable><strong>CAL</strong> used to crush at a job that doesn't exist anymore. He can email, he can research, and he can make pitch decks — just not better than a free-tier LLM. But "skills" are so 2020. All that matters to Cal is creativity and agency. Now that he's fired, he just needs to learn how to, you know, <em>do that</em>.</div>
 <div class="p-body" data-editable><strong>BEN</strong> can actually make stuff. His old company didn't want to let him go, but investors wanted to see headcount replaced by tokens. With Cal, he has a champion, a hypeman, and a fountain of ideas he'll never be able to finish. But at least he has a place on the sofa.</div>
-<div class="p-body" data-editable><strong>YARI</strong> makes movies. In theory. In practice, she's getting nowhere. Cal's next-door neighbor, she offers to film a documentary about their company, promising a riveting tale of their inevitable rise. She finds a lot more success posting their failures on TikTok behind their&nbsp;back.</div>
+<div class="p-body" data-editable><strong>YARI</strong> makes movies. In theory. In practice, she's not making anything. Cal's next-door neighbor, she offers to film a documentary about their company, promising a riveting tale of their inevitable rise. She finds a lot more success posting their failures on TikTok behind their&nbsp;back.</div>
 </div></div>
+<div class="sep section" data-reveal></div>
 <div class="section" data-reveal><div class="section-inner">
-<div class="h-section">SEASON <span class="hl">ONE</span></div>
-<div class="p-body" data-editable>Yari films Cal and Ben starting a company — beginning with them deciding which company to&nbsp;start.</div>
+<div class="p-body" data-editable><strong class="season-label">SEASON ONE:</strong> Yari films Cal and Ben starting a company — beginning with them deciding which company to&nbsp;start.</div>
 <details class="episodes-toggle" id="episodes-toggle">
 <summary class="episodes-summary">episodes <span class="episodes-chevron">›</span></summary>
 <div class="episodes-list">
-<div class="p-body" data-editable><strong>1 — THOUGHT LEADER.</strong> After being fired from a tech giant, Cal and Ben hire their filmmaker neighbor Yari to shoot a promo for their company. But they don't know what that company is. Cal convinces Ben that they need to "Always Be Posting" to establish themselves as thought leaders. Without any refined thoughts, Cal and Ben accidentally record their argument over what to post — and send it to a chatbot. It comes back with a perfectly proportioned pile of slop, topped with Ben's single hot take. Ben refuses to post it. But while he's in the bathroom, Cal sends it into the world. It goes viral and by the time Ben comes back, they have an investor meeting scheduled.</div>
-<div class="p-body" data-editable><strong>2 — PITCH.</strong> Cal kills it in their zoom investor meeting. But wildly overpromises what the product can produce — leaving Ben on the hook to build a demo he has no idea how to build. Meanwhile, Yari lies to her husband about her new "paying" job. Desperate for a quick win, she posts a video of Cal and Ben on TikTok with the title "two idiots start a company".</div>
-<div class="p-body" data-editable><strong>3 — PRODUCT.</strong> Ben vibe codes a demo in an afternoon. Cal is ecstatic at how well it works and sends it to the investor, who asks for a roadmap. But he quickly learns it's not what they promised. After Yari's secret video gets more traction than anything she's ever posted, she gets a call from an actual paying client.</div>
-<div class="p-body" data-editable><strong>4 — ROADMAP.</strong> Cal and Ben lock themselves in a room until the roadmap is finished, playing chatbots off each other and upgrading the deck until it's unrecognizable. In a fight, we learn Cal is funding the company through a settlement he got when he was hit by a UPS truck. Ben considers whether he needs to be independent, and find a truck of his own. Before things get out of hand, they get incredible news: a customer is interested in their product. Capturing all this on camera, Yari turns down the corporate gig to keep filming the doc. But keeps posting on TikTok.</div>
-<div class="p-body" data-editable><strong>5 — CUSTOMER.</strong> Cal and Ben go to their first sales meeting, with Yari in tow to get footage. Everything is going perfectly until they learn the customer is only interested because of Yari's TikTok videos. Cal sees what she's been posting and fires Yari, who takes the corporate gig she turned down. Before they even leave the office, they get an email from the investor — who's seen the videos too, and is passing on their company.</div>
-<div class="p-body" data-editable><strong>6 — ONE WAY UP.</strong> With no prospects, Cal and Ben realize their only way forward is building on their TikTok traction. After failing to film themselves, they show up at Yari's corporate gig to beg her to come back, causing a scene. But instead of getting fired, Yari's client offers to fund a documentary about their company. With a fresh start for all of them, Cal and Ben go back to the drawing board. Then Ben gets a call from the investor offering him a real job.</div>
+<div class="p-body" data-editable><strong>ONE: THOUGHT LEADER</strong> After being fired from a tech giant, Cal and Ben hire their filmmaker neighbor Yari to shoot a promo for their company. But they don't know what that company is. Cal convinces Ben that they need to "Always Be Posting" to establish themselves as thought leaders. Without any refined thoughts, Cal and Ben accidentally record their argument over what to post — and send it to a chatbot. It comes back with a perfectly proportioned pile of slop, topped with Ben's single hot take. Ben refuses to post it. But while he's in the bathroom, Cal sends it into the world. It goes viral and by the time Ben comes back, they have an investor meeting scheduled.</div>
+<div class="p-body" data-editable><strong>TWO: PITCH</strong> Cal kills it in their zoom investor meeting. But wildly overpromises what the product can produce — leaving Ben on the hook to build a demo he has no idea how to build. Meanwhile, Yari lies to her husband about her new "paying" job. Desperate for a quick win, she posts a video of Cal and Ben on TikTok with the title "two idiots start a company".</div>
+<div class="p-body" data-editable><strong>THREE: PRODUCT</strong> Ben vibe codes a demo in an afternoon. Cal is ecstatic at how well it works and sends it to the investor, who asks for a roadmap. But he quickly learns it's not what they promised. After Yari's secret video gets more traction than anything she's ever posted, she gets a call from an actual paying client.</div>
+<div class="p-body" data-editable><strong>FOUR: ROADMAP</strong> Cal and Ben lock themselves in a room until the roadmap is finished, playing chatbots off each other and upgrading the deck until it's unrecognizable. In a fight, we learn Cal is funding the company through a settlement he got when he was hit by a UPS truck. Ben considers whether he needs to be independent, and find a truck of his own. Before things get out of hand, they get incredible news: a customer is interested in their product. Capturing all this on camera, Yari turns down the corporate gig to keep filming the doc. But keeps posting on TikTok.</div>
+<div class="p-body" data-editable><strong>FIVE: CUSTOMER</strong> Cal and Ben go to their first sales meeting, with Yari in tow to get footage. Everything is going perfectly until they learn the customer is only interested because of Yari's TikTok videos. Cal sees what she's been posting and fires Yari, who takes the corporate gig she turned down. Before they even leave the office, they get an email from the investor — who's seen the videos too, and is passing on their company.</div>
+<div class="p-body" data-editable><strong>SIX: ONE WAY UP</strong> With no prospects, Cal and Ben realize their only way forward is building on their TikTok traction. After failing to film themselves, they show up at Yari's corporate gig to beg her to come back, causing a scene. But instead of getting fired, Yari's client offers to fund a documentary about their company. With a fresh start for all of them, Cal and Ben go back to the drawing board. Then Ben gets a call from the investor offering him a real job.</div>
 </div>
 </details>
-</div></div>
-<div class="section" data-reveal><div class="section-inner">
-<div class="h-section">SEASON <span class="hl">TWO</span></div>
-<div class="p-body" data-editable>With a real budget to film, Yari follows Cal and Ben as they hit the road to raise money, sell their new product, and hire&nbsp;talent.</div>
+<div class="p-body" data-editable><strong class="season-label">SEASON TWO:</strong> With a real budget to film, Yari follows Cal and Ben as they hit the road to raise money, sell their new product, and hire&nbsp;talent.</div>
 </div></div>
 <div class="section" data-reveal><div class="credits" style="position:relative">
 <canvas id="creature-canvas" style="position:absolute;top:-13px;left:0;width:100%;height:26px;pointer-events:none"></canvas>
@@ -221,8 +225,8 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 <div class="credit-row"><div class="credit-role">director · yari</div><div class="credit-name"><a href="https://www.imdb.com/name/nm5107883/" target="_blank" rel="noopener">TAYARISHA POE</a></div><div class="credit-works" data-editable><span class="ref">SELAH AND THE SPADES</span> (Sundance) · <span class="ref">THE YOUNG WIFE</span> (SXSW) · <span class="ref">DAVE</span> (FXX) · <span class="ref">THE TWILIGHT ZONE</span>&nbsp;(CBS).</div></div>
 </div></div>
 <div class="section" data-reveal><div class="cta-section">
-<div class="cta-buttons" id="cta-buttons"><button class="cta-btn" onclick="openChat()">let's ship it</button><a href="https://www.mckinsey.com/careers/search-jobs" target="_blank" rel="noopener" class="cta-btn-no">join the permanent underclass</a></div>
-<form name="vibecode" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="chat-box" id="chat-box"><span class="chat-close" onclick="closeChat()">✕</span><input type="hidden" name="form-name" value="vibecode"><input name="bot-field" style="display:none"><label>email</label><input type="email" name="email" id="chat-email" placeholder="you@email.com" required><label>message for max</label><textarea name="message" id="chat-msg" required></textarea><button type="submit" class="chat-send">send</button></form>
+<div class="cta-buttons" id="cta-buttons"><button class="cta-btn" id="ship-it-btn" onclick="openChat()">let's ship it</button><a href="https://www.mckinsey.com/careers/search-jobs" target="_blank" rel="noopener" class="cta-btn-no">join the permanent underclass</a></div>
+<form name="vibecode" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="chat-box" id="chat-box"><button type="button" class="chat-close" onclick="closeChat()" aria-label="close">✕</button><input type="hidden" name="form-name" value="vibecode"><input name="bot-field" style="display:none"><label for="chat-email">email</label><input type="email" name="email" id="chat-email" placeholder="you@email.com" required><label for="chat-msg">message for max</label><textarea name="message" id="chat-msg" required></textarea><button type="submit" class="chat-send">send</button></form>
 <div class="chat-sent" id="chat-sent">message sent. stay&nbsp;tuned.</div>
 </div></div>
 <div class="section" data-reveal><a href="https://coyne-green.com" class="back-link" target="_blank" rel="noopener">more at coyne-green.com <span class="back-arrow">→</span></a></div>
@@ -230,7 +234,7 @@ body.edit-mode [contenteditable]:focus{outline-color:var(--accent)}
 </div>
 </div>
 <script>
-const PROMPT_PART1='create ideal media vehicle to promote a tech brand. customizable to company. make sure it\'s actually good.';
+const PROMPT_PART1='vibe code a series about, idk, vibe coding or something. satirizing the AI economy. figure out the best format -- socially native, probably short form? and structure the premise so tech companies can pay for it. also make it Good.';
 const PROMPT_PART2=' no mistakes.';
 const FULL_PROMPT=PROMPT_PART1+PROMPT_PART2;
 const sidebarMsgs=['future generating...','vibe coding...','ego compiling...','budget optimizing...','vibes calibrating...','delusion indexing...','rent calculating...','hustle rendering...','concept loading...','agency activating...','crash out buffering...','dreams compressing...','chaos normalizing...','tapping culture...','satirizing business...','safety net dissolving...'];
@@ -245,23 +249,44 @@ const sl=document.getElementById('sidebar-loader');
 const slt=document.getElementById('sidebar-loader-text');
 const editBtn=document.getElementById('edit-toggle');
 let sidebarInterval=null;
-function typePrompt(cb){let i=0;const pauseAt=PROMPT_PART1.length;function tick(){if(i<FULL_PROMPT.length){let d=30+Math.random()*18;if(i>0&&FULL_PROMPT[i-1]==='.')d+=80;if(i===pauseAt)d=800;promptText.innerHTML=FULL_PROMPT.substring(0,i+1)+'<span class="cursor"></span>';i++;setTimeout(tick,d)}else{setTimeout(()=>{promptText.innerHTML=FULL_PROMPT;cb()},500)}}tick()}
-function ghostPrompt(cb){promptLine.classList.add('ghost');setTimeout(cb,500)}
-function runColdLines(cb){coldLines.forEach((line,i)=>{setTimeout(()=>{coldLines.forEach((p,j)=>{if(j<i)p.classList.add('dim')});line.classList.add('visible');if(i===coldLines.length-1)setTimeout(cb,600)},700*(i+1))})}
-function typeTitle(cb){const b='VIBE CODE ',l='a series',f=b+l;let i=0;titleEl.classList.add('visible');const iv=setInterval(()=>{if(i<f.length){let h='';if(i<b.length){h='<span class="title-bold">'+f.substring(0,i+1)+'</span><span class="title-cursor" style="height:0.55em"></span>'}else{h='<span class="title-bold">'+b+'</span><span class="title-light">'+f.substring(b.length,i+1)+'</span><span class="title-cursor" style="height:0.4em"></span>'}titleEl.innerHTML=h;i++}else{clearInterval(iv);titleEl.innerHTML='<span class="title-bold">'+b+'</span><span class="title-light">'+l+'</span><span class="title-cursor" style="height:0.4em"></span>';cb()}},38)}
-function showContent(){contentArea.classList.add('visible');setTimeout(()=>{sidebar.classList.add('visible');layout.classList.add('sidebar-open');startSidebar()},600)}
-function startSidebar(){sl.classList.add('active');let idx=0;slt.textContent=sidebarMsgs[0];if(sidebarInterval)clearInterval(sidebarInterval);sidebarInterval=setInterval(()=>{slt.style.opacity='0';setTimeout(()=>{idx=(idx+1)%sidebarMsgs.length;slt.textContent=sidebarMsgs[idx];slt.style.opacity='1'},150)},2400)}
+function typePrompt(cb){let i=0;const pauseAt=PROMPT_PART1.length;function tick(){if(i<FULL_PROMPT.length){let d=6+Math.random()*4;if(i>0&&FULL_PROMPT[i-1]==='.')d+=40;if(i===pauseAt)d=200;promptText.innerHTML=FULL_PROMPT.substring(0,i+1)+'<span class="cursor"></span>';i++;setTimeout(tick,d)}else{setTimeout(()=>{promptText.innerHTML=FULL_PROMPT;cb()},100)}}tick()}
+function ghostPrompt(cb){promptLine.classList.add('ghost');setTimeout(cb,120)}
+function runColdLines(cb){coldLines.forEach((line,i)=>{setTimeout(()=>{coldLines.forEach((p,j)=>{if(j<i)p.classList.add('dim')});line.classList.add('visible');if(i===coldLines.length-1)setTimeout(cb,150)},200*(i+1))})}
+function typeTitle(cb){const b='VIBE CODE ',l='a series',f=b+l;let i=0;titleEl.classList.add('visible');const iv=setInterval(()=>{if(i<f.length){let h='';if(i<b.length){h='<span class="title-bold">'+f.substring(0,i+1)+'</span><span class="title-cursor" style="height:0.55em"></span>'}else{h='<span class="title-bold">'+b+'</span><span class="title-light">'+f.substring(b.length,i+1)+'</span><span class="title-cursor" style="height:0.4em"></span>'}titleEl.innerHTML=h;i++}else{clearInterval(iv);titleEl.innerHTML='<span class="title-bold">'+b+'</span><span class="title-light">'+l+'</span><span class="title-cursor" style="height:0.4em"></span>';cb()}},28)}
+function showContent(){contentArea.classList.add('visible');setTimeout(()=>{sidebar.classList.add('visible');layout.classList.add('sidebar-open');startSidebar()},400)}
+function startSidebar(){sl.classList.add('active');let idx=0;slt.textContent=sidebarMsgs[0];if(prefersReducedMotion)return;if(sidebarInterval)clearInterval(sidebarInterval);sidebarInterval=setInterval(()=>{slt.style.opacity='0';setTimeout(()=>{idx=(idx+1)%sidebarMsgs.length;slt.textContent=sidebarMsgs[idx];slt.style.opacity='1'},150)},2400)}
 function initScrollReveal(){document.querySelectorAll('[data-reveal]').forEach(s=>{new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:0.1}).observe(s)})}
+function showFinalState(){
+  promptText.innerHTML=FULL_PROMPT;
+  promptLine.classList.add('ghost');
+  coldLines.forEach((line,i)=>{line.classList.add('visible');if(i<coldLines.length-1)line.classList.add('dim')});
+  const b='VIBE CODE ',l='a series';
+  titleEl.classList.add('visible');
+  titleEl.innerHTML='<span class="title-bold">'+b+'</span><span class="title-light">'+l+'</span><span class="title-cursor" style="height:0.4em"></span>';
+  contentArea.classList.add('visible');
+  sidebar.classList.add('visible');
+  layout.classList.add('sidebar-open');
+  startSidebar();
+}
 initScrollReveal();
-setTimeout(()=>{typePrompt(()=>{ghostPrompt(()=>{runColdLines(()=>{typeTitle(showContent)})})})},300);
+function safeStorageGet(key){try{return sessionStorage.getItem(key)}catch(e){return null}}
+function safeStorageSet(key,val){try{sessionStorage.setItem(key,val)}catch(e){}}
+const INTRO_KEY='vc-intro-seen';
+const prefersReducedMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(safeStorageGet(INTRO_KEY)==='1'||prefersReducedMotion){
+  showFinalState();
+}else{
+  setTimeout(()=>{typePrompt(()=>{ghostPrompt(()=>{runColdLines(()=>{typeTitle(()=>{safeStorageSet(INTRO_KEY,'1');showContent()})})})})},80);
+}
 if(new URLSearchParams(window.location.search).get('edit')==='true'){editBtn.classList.add('show')}
 let editMode=false;
 function toggleEdit(){editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);editBtn.textContent=editMode?'✓ done':'✏ edit';document.querySelectorAll('[data-editable]').forEach(el=>{el.contentEditable=editMode?'true':'false'})}
-function openChat(){document.getElementById('cta-buttons').style.display='none';document.getElementById('chat-box').classList.add('active');document.getElementById('chat-email').focus()}
-function closeChat(){document.getElementById('chat-box').classList.remove('active');document.getElementById('cta-buttons').style.display='flex'}
+function chatEscHandler(ev){if(ev.key==='Escape')closeChat()}
+function openChat(){document.getElementById('cta-buttons').style.display='none';document.getElementById('chat-box').classList.add('active');document.getElementById('chat-email').focus();document.addEventListener('keydown',chatEscHandler)}
+function closeChat(){document.getElementById('chat-box').classList.remove('active');document.getElementById('cta-buttons').style.display='flex';document.removeEventListener('keydown',chatEscHandler);document.getElementById('ship-it-btn').focus()}
 // pixel creature
-(function(){
-const cc=document.getElementById('creature-canvas');
+function initCreature(id){
+const cc=document.getElementById(id);
 if(!cc)return;
 const ctx=cc.getContext('2d');
 const P=2;// pixel size
@@ -300,10 +325,12 @@ const maxX=cc.offsetWidth-W*P-10;
 if(cx>maxX){dir=-1}
 if(cx<10){dir=1}
 frame++;
-requestAnimationFrame(draw);
+if(!prefersReducedMotion){requestAnimationFrame(draw)}
 }
 draw();
-})();
+}
+initCreature('creature-canvas');
+initCreature('creature-canvas-2');
 document.getElementById('chat-box').addEventListener('submit',function(ev){ev.preventDefault();const form=ev.target,sent=document.getElementById('chat-sent');fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).then(r=>{if(!r.ok)throw new Error(r.status);form.classList.remove('active');form.style.display='none';sent.textContent='message sent. stay tuned.';sent.classList.add('active')}).catch(()=>{form.classList.remove('active');form.style.display='none';sent.textContent='something broke. try emailing max@mcoynegreen.com';sent.classList.add('active')})});
 </script>
 </body>
